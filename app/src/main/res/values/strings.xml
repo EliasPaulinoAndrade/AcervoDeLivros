@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">AcervoApp</string>
+    <string name="padraoCategoria">Categoria</string>
+    <string-array name="livrosCategorias">
+        <item>Terror</item>
+        <item>Fantasia</item>
+    </string-array>
+</resources>
