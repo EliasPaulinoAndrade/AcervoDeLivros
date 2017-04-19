@@ -17,7 +17,7 @@
     <TextView
         android:id="@+id/logoTxt"
         android:textColor="@color/secWhite"
-        android:textSize="20dp"
+        android:textSize="30dp"
         android:layout_marginTop="10dp"
         android:layout_below="@+id/logoImg"
         android:layout_width="wrap_content"
@@ -38,6 +38,7 @@
                 android:layout_margin="5dp"
                 android:background="@color/thirdGray">
                 <TextView
+                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Livros"
@@ -48,13 +49,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/busca"
-                    android:layout_margin="30dp"/>
+                    android:layout_margin="50dp"/>
             </com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout>
             <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
                 android:layout_width="0dp"
                 android:layout_margin="5dp"
                 android:background="@color/thirdGray">
                 <TextView
+                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Categorias"
@@ -65,13 +67,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/categorias"
-                    android:layout_margin="30dp"/>
+                    android:layout_margin="50dp"/>
             </com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout>
             <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
                 android:layout_width="0dp"
                 android:layout_margin="5dp"
                 android:background="@color/thirdGray">
                 <TextView
+                    android:padding="5dp"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Avisos"
@@ -82,27 +85,118 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:src="@drawable/avisos"
-                    android:layout_margin="30dp"/>
+                    android:layout_margin="50dp"/>
             </com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout>
         </TableRow>
     </TableLayout>
     <RelativeLayout
         android:layout_below="@+id/options"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/firstGray">
-        <com.example.elias.acervoapp.uiimplementacoes.GraficoPizza
-            android:layout_width="50dp"
-            app:centerColor="@color/white"
-            app:raioInterno="10dp"
-            android:layout_height="50dp">
-            <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                app:secaoColor="@color/white"
-                app:qntNumber="25"/>
+        android:layout_height="wrap_content">
+        <FrameLayout
+            android:id="@+id/grafico"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/firstGray">
+            <com.example.elias.acervoapp.uiimplementacoes.GraficoPizza
+                android:layout_width="200dp"
+                app:centerColor="@color/firstGray"
+                app:raioInterno="70dp"
+                android:layout_gravity="center"
+                android:layout_height="200dp">
+                <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:secaoColor="@color/firstGreen"
+                    app:qntNumber="70"/>
+                <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    app:secaoColor="@color/firstRed"
+                    app:qntNumber="30"/>
 
-        </com.example.elias.acervoapp.uiimplementacoes.GraficoPizza>
+            </com.example.elias.acervoapp.uiimplementacoes.GraficoPizza>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="60\nLivros"
+                android:textSize="30dp"
+                android:textColor="@color/secWhite"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </FrameLayout>
+        <LinearLayout
+            android:layout_below="@+id/grafico"
+            android:layout_width="match_parent"
+            android:weightSum="2"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginRight="2dp"
+                android:background="@color/thirdGray"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:id="@+id/colorOpt"
+                    android:background="@color/firstYellow">
+                </FrameLayout>
+                <TextView
+                    android:layout_below="@id/colorOpt"
+                    android:id="@+id/guardados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Guardados"
+                    android:textSize="15dp"
+                    android:textColor="@color/secWhite"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="50%"
+                    android:textColor="@color/secWhite"
+                    android:layout_below="@id/guardados"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="25dp"/>
+            </RelativeLayout>
 
+            <RelativeLayout
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_marginLeft="2dp"
+                android:background="@color/thirdGray"
+                android:layout_height="wrap_content">
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="4dp"
+                    android:id="@+id/colorOpt"
+                    android:background="@color/firstBlue">
+                </FrameLayout>
+                <TextView
+                    android:layout_below="@id/colorOpt"
+                    android:id="@+id/guardados"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Emprestados"
+                    android:textSize="15dp"
+                    android:textColor="@color/secWhite"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="20%"
+                    android:textColor="@color/secWhite"
+                    android:layout_below="@id/guardados"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="25dp"/>
+            </RelativeLayout>
+        </LinearLayout>
     </RelativeLayout>
+
 </RelativeLayout>

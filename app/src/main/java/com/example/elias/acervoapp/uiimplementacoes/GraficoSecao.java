@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 
 import com.example.elias.acervoapp.R;
@@ -20,7 +21,8 @@ import java.util.ArrayList;
 public class GraficoSecao extends View{
     int color;
     float qntNum;
-    float angulo;
+    float anguloInit;
+    float anguloEnd;
     public GraficoSecao(Context context) {
         super(context);
     }
@@ -37,18 +39,12 @@ public class GraficoSecao extends View{
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint pt = new Paint();
+        Paint gpt = new Paint();
+        GraficoPizza gp = (GraficoPizza) getParent();
+        gpt.setColor(gp.getCenterColor());
         pt.setColor(this.color);
-        GraficoPizza gp = (GraficoPizza)getParent();
-        ArrayList<GraficoSecao> secoes = gp.getSecoes();
-        float initAng = 0;
-        for(GraficoSecao secao : secoes){
-            initAng+=secao.qntNum*36/10;
-        }
-        this.angulo = initAng + this.qntNum*36/10;
-        this.angulo = this.angulo/2;
-        secoes.add(this);
-        //canvas.drawCircle(this.getWidth()/2, this.getWidth()/2, gp.getRaioInterno(), pt);
-        canvas.drawArc(new RectF(0, 0, this.getWidth(), this.getWidth()),initAng, this.angulo, true,pt);
+        canvas.drawArc(new RectF(0, 0, this.getWidth(), this.getWidth()),anguloInit, anguloEnd, true,pt);
+        canvas.drawCircle(this.getWidth()/2, this.getWidth()/2, gp.getRaioInterno(), gpt);
     }
 
     public int getColor() {
@@ -67,11 +63,19 @@ public class GraficoSecao extends View{
         this.qntNum = qntNum;
     }
 
-    public float getAngulo() {
-        return angulo;
+    public float getAnguloInit() {
+        return anguloInit;
     }
 
-    public void setAngulo(float angulo) {
-        this.angulo = angulo;
+    public void setAnguloInit(float anguloInit) {
+        this.anguloInit = anguloInit;
+    }
+
+    public float getAnguloEnd() {
+        return anguloEnd;
+    }
+
+    public void setAnguloEnd(float anguloEnd) {
+        this.anguloEnd = anguloEnd;
     }
 }

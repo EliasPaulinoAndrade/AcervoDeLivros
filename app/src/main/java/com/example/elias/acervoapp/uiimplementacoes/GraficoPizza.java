@@ -7,6 +7,7 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
@@ -22,12 +23,9 @@ import java.util.ArrayList;
 public class GraficoPizza extends FrameLayout {
     int centerColor;
     int raioInterno;
-    int num;
-    ArrayList<GraficoSecao> secoes;
     public GraficoPizza(Context context) {
         super(context);
     }
-
     public GraficoPizza(Context context, @Nullable AttributeSet attrs) {
         super(context, attrs);
         TypedArray a = context.getTheme().obtainStyledAttributes(
@@ -36,16 +34,19 @@ public class GraficoPizza extends FrameLayout {
                 0, 0);
         this.centerColor = a.getColor(R.styleable.GraficoPizza_centerColor, 1);
         this.raioInterno = a.getDimensionPixelSize(R.styleable.GraficoPizza_raioInterno, 1);
-        this.num = a.getInteger(R.styleable.GraficoPizza_num, 1);
-        this.secoes = new ArrayList<GraficoSecao>();
     }
-    @Override
 
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
-        Paint pt = new Paint();
-        pt.setColor(this.centerColor);
-        canvas.drawCircle(this.getWidth()/2, this.getWidth()/2, this.raioInterno, pt);
+    @Override
+    protected void onFinishInflate() {
+        super.onFinishInflate();
+        float ang = 0;
+        GraficoSecao secaoAux;
+        for(int i=0; i< getChildCount(); i++){
+            secaoAux = (GraficoSecao) getChildAt(i);
+            secaoAux.setAnguloInit(ang);
+            ang+=secaoAux.getQntNum()*36/10;
+            secaoAux.setAnguloEnd(secaoAux.getQntNum()*36/10);
+        }
     }
 
     public int getCenterColor() {
@@ -62,21 +63,5 @@ public class GraficoPizza extends FrameLayout {
 
     public void setRaioInterno(int raioInterno) {
         this.raioInterno = raioInterno;
-    }
-
-    public int getNum() {
-        return num;
-    }
-
-    public void setNum(int num) {
-        this.num = num;
-    }
-
-    public ArrayList<GraficoSecao> getSecoes() {
-        return secoes;
-    }
-
-    public void setSecoes(ArrayList<GraficoSecao> secoes) {
-        this.secoes = secoes;
     }
 }
