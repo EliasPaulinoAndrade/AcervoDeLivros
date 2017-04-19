@@ -1,0 +1,6 @@
+<resources>
+    <declare-styleable name="GraficoSecao">
+        <attr name="secaoColor" format="color"/>
+        <attr name="qntNumber" format="float"/>
+    </declare-styleable>
+</resources>

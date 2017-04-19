@@ -16,7 +16,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Livros" />
-        <activity android:name=".Categorias"></activity>
+        <activity android:name=".Categorias" />
+        <activity android:name=".Inicio"></activity>
     </application>
 
 </manifest>

@@ -1,0 +1,7 @@
+<resources>
+    <declare-styleable name="GraficoPizza">
+        <attr name="centerColor" format="color"/>
+        <attr name="raioInterno" format="dimension"/>
+        <attr name="num" format="integer"/>
+    </declare-styleable>
+</resources>
