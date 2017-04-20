@@ -140,7 +140,20 @@
             android:layout_below="@id/buscaEdit"
             android:entries="@array/livrosCategorias"
             android:prompt="@string/padraoCategoria"
+
             android:background="@drawable/spinner_fundo">
         </Spinner>
     </RelativeLayout>
+
+    <NumberPicker
+        android:id="@+id/numberPicker"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="131dp"
+        android:layout_marginLeft="155dp"
+        android:layout_marginStart="155dp"
+        style="@style/picker"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>
