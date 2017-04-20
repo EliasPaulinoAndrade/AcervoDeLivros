@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="20dp"
+    android:background="@color/secGray">
+    <TextView
+        android:id="@+id/titleEdit"
+        android:text="Emprestado Ao João"
+        android:textAlignment="center"
+        android:textSize="25dp"
+        android:maxLines="1"
+        android:textColorHint="@color/secWhite"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:paddingLeft="10dp"
+        android:textColor="@color/secWhite"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_arredondado"
+        android:layout_height="wrap_content" />
+    <TextView
+        android:id="@+id/trocar"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/titleEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Trocar Status: "
+        android:textColor="@color/secWhite"
+        android:textSize="20dp"/>
+
+    <LinearLayout
+        android:id="@+id/opts"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/trocar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="...Empreatado a .."
+            android:textSize="25dp"
+            android:textColor="@color/white"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="...Guardado..."
+            android:textSize="25dp"
+            android:textColor="@color/white"/>
+    </LinearLayout>
+    <Button
+        android:background="@drawable/button_status_livro"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/opts"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Trocar"/>
+</RelativeLayout>

@@ -6,6 +6,7 @@ import android.support.annotation.AttrRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.StyleRes;
+import android.support.percent.PercentFrameLayout;
 import android.util.AttributeSet;
 import android.widget.FrameLayout;
 
@@ -13,7 +14,7 @@ import android.widget.FrameLayout;
  * Created by Elias Paulino on 18/04/2017.
  */
 
-public class FrameSquareLayout extends FrameLayout {
+public class FrameSquareLayout extends PercentFrameLayout {
     public FrameSquareLayout(@NonNull Context context) {
         super(context);
     }

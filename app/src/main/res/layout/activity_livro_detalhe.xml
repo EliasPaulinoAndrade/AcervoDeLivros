@@ -37,15 +37,11 @@
         android:layout_below="@+id/livroDetail"
         android:layout_width="match_parent"
         android:layout_height="200dp">
-
         <ImageView
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
             android:layout_height="match_parent"
-            android:src="@drawable/imagemteste"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
+            android:src="@drawable/livrode"
             android:id="@+id/imageView" />
     </RelativeLayout>
     <RelativeLayout
@@ -134,75 +130,12 @@
             </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
-    <RelativeLayout
-        android:id="@+id/history"
-        android:layout_below="@id/optionDetail"
-        android:background="@color/secGray"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="15dp">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="History"
-            android:textSize="30dp"
-            android:textColor="@color/secWhite"/>
-    </RelativeLayout>
-    <LinearLayout
-        android:paddingLeft="15dp"
-        android:paddingRight="15dp"
-        android:background="@color/secGray"
-        android:layout_below="@+id/history"
+    <fragment
+        android:layout_below="@+id/optionDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12/09"
-                android:textColor="@color/secWhite"
-                android:textSize="17dp">
-            </TextView>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Pego De João"
-                android:textSize="17dp"
-                android:textColor="@color/secWhite"
-                android:drawableLeft="@drawable/pego"
-                android:drawablePadding="10dp"
-                />
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:weightSum="2">
-            <TextView
-                android:layout_weight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="12/09"
-                android:textColor="@color/secWhite"
-                android:textSize="17dp">
-            </TextView>
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Emprestado Ao João"
-                android:textSize="17dp"
-                android:textColor="@color/secWhite"
-                android:drawableLeft="@drawable/emprestado"
-                android:drawablePadding="10dp"
-                />
-        </LinearLayout>
-    </LinearLayout>
+        android:name="com.example.elias.acervoapp.fragmentos.RemoveLivroFragment"
+        tools:layout="@layout/fragment_remove_livro">
+    </fragment>
+
 </RelativeLayout>

@@ -82,7 +82,6 @@
                 android:layout_toRightOf="@+id/imgItem"/>
         </RelativeLayout>
     </LinearLayout>
-
     <RelativeLayout
         android:id="@+id/pesquisaDiv"
         android:background="@color/firstGray"

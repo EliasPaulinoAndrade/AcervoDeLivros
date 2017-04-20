@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:padding="20dp"
+    android:background="@color/secGray">
+    <android.support.percent.PercentFrameLayout
+        android:id="@+id/exclam"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            app:layout_widthPercent="30%"
+            app:layout_heightPercent="30%"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:src="@drawable/exclam"
+            android:layout_gravity="center"/>
+    </android.support.percent.PercentFrameLayout>
+    <TextView
+        android:id="@+id/aviso"
+        android:layout_below="@id/exclam"
+        android:text="Realmente Deseja REMOVER Esse Livro Dos Registros?"
+        android:textSize="25dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:background="@drawable/button_remove_livro"
+        android:layout_marginTop="20dp"
+        android:layout_below="@id/aviso"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/white"
+        android:textSize="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="10dp"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp"
+        android:text="Remover"/>
+</RelativeLayout>

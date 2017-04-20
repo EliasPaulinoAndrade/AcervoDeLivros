@@ -1,8 +1,15 @@
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
-    <stroke
-        android:width="2dp"
-        android:color="@color/thirdGray" />
-    <solid android:color="@color/firstGray">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape>
+            <stroke
+                android:width="2dp"
+                android:color="@color/thirdGray" />
+            <solid android:color="@color/firstGray">
 
-    </solid>
-</shape>
+            </solid>
+        </shape>
+    </item>
+    <item android:right="2dp">
+        <bitmap android:gravity="center_vertical|right" android:src="@drawable/spinnerarrow" />
+    </item>
+</layer-list>
