@@ -36,6 +36,7 @@ public class GraficoSecao extends View{
         this.color = a.getColor(R.styleable.GraficoSecao_secaoColor, 1);
         this.qntNum = a.getFloat(R.styleable.GraficoSecao_qntNumber, 1);
     }
+
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         Paint pt = new Paint();

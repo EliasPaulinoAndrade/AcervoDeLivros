@@ -4,6 +4,8 @@
     <string-array name="livrosCategorias">
         <item>Terror</item>
         <item>Fantasia</item>
+        <item>Romance</item>
+        <item>Ficção Cientifica</item>
     </string-array>
 
     <!-- TODO: Remove or change this placeholder text -->

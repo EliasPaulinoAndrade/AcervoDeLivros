@@ -33,6 +33,7 @@
             android:gravity="center"/>
     </RelativeLayout>
     <RelativeLayout
+        android:onClick="imageClick"
         android:id="@+id/imageDetail"
         android:layout_below="@+id/livroDetail"
         android:layout_width="match_parent"
@@ -54,12 +55,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:paddingBottom="10dp"
             android:weightSum="3">
             <FrameLayout
+                android:id="@+id/editButton"
+                android:onClick="editLivroClick"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
@@ -81,9 +84,12 @@
                     android:paddingTop="50dp"/>
             </FrameLayout>
             <FrameLayout
+                android:onClick="removeLivroClick"
+                android:id="@+id/removeButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
@@ -105,9 +111,11 @@
                     android:paddingTop="50dp"/>
             </FrameLayout>
             <FrameLayout
+                android:id="@+id/statusButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:paddingBottom="10dp">
                 <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="5dp"
@@ -130,12 +138,14 @@
             </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
+
     <fragment
+        android:id="@+id/fragmentoDetail"
         android:layout_below="@+id/optionDetail"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:name="com.example.elias.acervoapp.fragmentos.RemoveLivroFragment"
-        tools:layout="@layout/fragment_remove_livro">
+        android:name="com.example.elias.acervoapp.fragmentos.DefaultLivroFragment"
+        tools:layout="@layout/fragment_default_livro">
     </fragment>
 
 </RelativeLayout>

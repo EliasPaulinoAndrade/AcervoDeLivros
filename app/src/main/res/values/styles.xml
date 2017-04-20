@@ -7,10 +7,4 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="picker" parent="android:Widget.NumberPicker">
-        <item name="android:drawSelectorOnTop">true</item>
-        <item name="android:background">@color/firstGreen</item>
-        <item name="android:colorBackground">@color/firstGreen</item>
-        <item name="android:textColorPrimary">@color/firstGreen</item>
-    </style>
 </resources>
