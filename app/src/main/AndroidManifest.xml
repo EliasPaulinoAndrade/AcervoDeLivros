@@ -8,16 +8,31 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LivroDetalhe" android:theme="@style/AppThemeNoShadow" >
+        <activity android:name=".LivroDetalhe" android:theme="@style/livroDetalheStyle" android:label="">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio">
+            </meta-data>
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Livros" />
-        <activity android:name=".Categorias" />
-        <activity android:name=".Inicio"></activity>
+        <activity android:name=".Livros" android:theme="@style/livrosStyle" android:label="Livros Do Acervo">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio">
+            </meta-data>
+        </activity>
+        <activity android:name=".Categorias" android:theme="@style/categoriasStyle" android:label="Categorias">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio">
+            </meta-data>
+        </activity>
+        <activity android:name=".Inicio" android:theme="@style/inicioStyle">
+
+        </activity>
     </application>
 
 </manifest>

@@ -12,12 +12,11 @@ public class Livros extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livros);
+
         ArrayAdapter adp =  ArrayAdapter.createFromResource(this, R.array.livrosCategorias, R.layout.spinner_lay);
         Spinner spin = (Spinner)findViewById(R.id.spinner);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adp);
-        getSupportActionBar().setBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.secBlue)));
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setTitle("Livros Do Acervo");
+
     }
 }

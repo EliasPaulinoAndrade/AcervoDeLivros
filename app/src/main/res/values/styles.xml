@@ -7,12 +7,18 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
-    <style name="AppThemeNoShadow" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
+    <style name="livroDetalheStyle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="android:windowContentOverlay">@null</item>
         <item name="windowActionBarOverlay">@null</item>
+        <item name="colorPrimary">@color/secGray</item>
+    </style>
+    <style name="livrosStyle" parent="Theme.AppCompat.Light.DarkActionBar">
         <item name="colorPrimary">@color/secBlue</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+    <style name="categoriasStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/secGreen</item>
+    </style>
+    <style name="inicioStyle" parent="Theme.AppCompat.Light.NoActionBar">
+
     </style>
 </resources>
