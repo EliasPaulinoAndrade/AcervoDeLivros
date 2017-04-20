@@ -111,6 +111,7 @@
                     android:paddingTop="50dp"/>
             </FrameLayout>
             <FrameLayout
+                android:onClick="statusLivroClick"
                 android:id="@+id/statusButton"
                 android:layout_width="0dp"
                 android:layout_weight="1"
