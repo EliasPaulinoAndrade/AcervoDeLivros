@@ -21,4 +21,7 @@
     <style name="inicioStyle" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+    <style name="loginStyle" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
 </resources>

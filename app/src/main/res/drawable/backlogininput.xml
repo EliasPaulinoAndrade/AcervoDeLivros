@@ -1,0 +1,71 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android" >
+    <item android:state_focused="true">
+        <layer-list >
+            <item>
+                <shape>
+                    <corners android:radius="3dp" />
+                    <solid
+                        android:color="@color/secGray">
+                    </solid>
+                </shape>
+            </item>
+            <item
+                android:bottom="-2dp"
+                android:right="-2dp">
+                <shape>
+                    <corners android:radius="3dp" />
+                    <stroke
+                        android:color="@color/fivGray"
+                        android:width="2dp">
+                    </stroke>
+                </shape>
+            </item>
+            <item
+                android:top="-2dp"
+                android:left="-2dp">
+                <shape>
+                    <corners android:radius="3dp" />
+                    <stroke
+                        android:color="@color/secBlue"
+                        android:width="2dp">
+                    </stroke>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list >
+            <item>
+                <shape>
+                    <corners android:radius="3dp" />
+                    <solid
+                        android:color="@color/secGray">
+                    </solid>
+                </shape>
+            </item>
+            <item
+                android:bottom="-2dp"
+                android:right="-2dp">
+                <shape>
+                    <corners android:radius="3dp" />
+                    <stroke
+                        android:color="@color/fivGray"
+                        android:width="2dp">
+                    </stroke>
+                </shape>
+            </item>
+            <item
+                android:top="-2dp"
+                android:left="-2dp">
+                <shape>
+                    <corners android:radius="3dp" />
+                    <stroke
+                        android:color="@color/thirdGray"
+                        android:width="2dp">
+                    </stroke>
+                </shape>
+            </item>
+        </layer-list>
+    </item>
+
+</selector>

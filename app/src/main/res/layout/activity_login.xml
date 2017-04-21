@@ -6,23 +6,74 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/firstGray"
+    android:paddingLeft="20dp"
+    android:paddingRight="20dp"
     tools:context="com.example.elias.acervoapp.Login">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Acervo"
+        android:textSize="50dp"
+        android:textStyle="bold"
+        android:textColor="@color/fivGray"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="58dp" />
     <TextView
         android:id="@+id/titleLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Acervo"
-        android:textSize="40dp"
+        android:textSize="50dp"
+        android:textStyle="bold"
         android:textColor="@color/firstBlue"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="60dp" />
     <ImageView
         android:layout_alignParentTop="true"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="20dp"
         android:id="@+id/logoLogin"
-        android:layout_width="30dp"
-        android:layout_height="40dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:src="@drawable/coruja"
         android:layout_alignRight="@id/titleLogin"/>
-    
+    <EditText
+        android:id="@+id/emailLogin"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/titleLogin"
+        android:textColor="@color/firstBlue"
+        android:textColorHint="@color/firstBlue"
+        android:hint="Email"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@drawable/backlogininput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/emailLogin"
+        android:hint="Senha"
+        android:id="@+id/senhaLogin"
+        android:textColor="@color/firstBlue"
+        android:textColorHint="@color/firstBlue"
+        android:textSize="20dp"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:inputType="textPassword"
+        android:background="@drawable/backlogininput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:textStyle="bold"
+        android:textSize="20dp"
+        android:layout_marginTop="50dp"
+        android:layout_below="@id/senhaLogin"
+        android:background="@drawable/loginbutton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textColor="@color/secGray"/>
 </RelativeLayout>
