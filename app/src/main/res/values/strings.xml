@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AcervoApp</string>
+    <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
     <string-array name="livrosCategorias">
         <item>Terror</item>

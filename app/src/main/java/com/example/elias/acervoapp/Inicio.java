@@ -1,5 +1,6 @@
 package com.example.elias.acervoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,12 +13,13 @@ public class Inicio extends AppCompatActivity {
         setContentView(R.layout.activity_inicio);
     }
     public void showLivros(View v){
-
+        Intent it = new Intent(this, Livros.class);
+        this.startActivity(it);
     }
     public void showCategorias(View v){
-
+        Intent it = new Intent(this, Categorias.class);
+        this.startActivity(it);
     }
     public void showAvisos(View v){
-
     }
 }

@@ -162,7 +162,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="4dp"
                         android:id="@+id/colorOpt"
-                        android:background="@color/firstYellow">
+                        android:background="@color/firstGreen">
                     </FrameLayout>
                     <TextView
                         android:layout_below="@id/colorOpt"
@@ -176,7 +176,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="50%"
+                        android:text="70%"
                         android:textColor="@color/secWhite"
                         android:layout_below="@id/guardados"
                         android:layout_centerHorizontal="true"
@@ -193,7 +193,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="4dp"
                         android:id="@+id/colorOpt2"
-                        android:background="@color/firstBlue">
+                        android:background="@color/firstRed">
                     </FrameLayout>
                     <TextView
                         android:layout_below="@id/colorOpt2"
@@ -207,7 +207,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="20%"
+                        android:text="30%"
                         android:textColor="@color/secWhite"
                         android:layout_below="@id/guardados2"
                         android:layout_centerHorizontal="true"

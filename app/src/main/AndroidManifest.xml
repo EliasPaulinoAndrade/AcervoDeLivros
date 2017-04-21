@@ -4,35 +4,44 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/coruja"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".LivroDetalhe" android:theme="@style/livroDetalheStyle" android:label="">
+        <activity
+            android:name=".LivroDetalhe"
+            android:label=""
+            android:theme="@style/livroDetalheStyle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Inicio">
-            </meta-data>
+                android:value=".Inicio"></meta-data>
+        </activity>
+        <activity
+            android:name=".Livros"
+            android:label="Livros Do Acervo"
+            android:theme="@style/livrosStyle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio"></meta-data>
+        </activity>
+        <activity
+            android:name=".Categorias"
+            android:label="Categorias"
+            android:theme="@style/categoriasStyle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio"></meta-data>
+        </activity>
+        <activity
+            android:name=".Inicio"
+            android:theme="@style/inicioStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Livros" android:theme="@style/livrosStyle" android:label="Livros Do Acervo">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Inicio">
-            </meta-data>
-        </activity>
-        <activity android:name=".Categorias" android:theme="@style/categoriasStyle" android:label="Categorias">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Inicio">
-            </meta-data>
-        </activity>
-        <activity android:name=".Inicio" android:theme="@style/inicioStyle">
-
-        </activity>
+        <activity android:name=".Login"></activity>
     </application>
 
 </manifest>
