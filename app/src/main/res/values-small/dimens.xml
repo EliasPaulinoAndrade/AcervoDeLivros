@@ -1,9 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Tamanhos-->
+    <dimen name="padding_page_default">10dp</dimen>
+    <dimen name="inicio_grafico_square">140dp</dimen>
+    <dimen name="inicio_grafico_raio">50dp</dimen>
+    <dimen name="livros_livro_image_square">95dp</dimen>
+    <!--Tamanhos-->
     <!--Fontes-->
     <dimen name="inputDefault">@dimen/H5</dimen>
     <dimen name="inputBusca">@dimen/H6</dimen>
     <dimen name="inicio_item_title">@dimen/H6</dimen>
+    <dimen name="inicio_grafico_text">@dimen/H2</dimen>
     <dimen name="livros_categorias_busca_resultado">@dimen/H6</dimen>
     <dimen name="livros_livro_title">@dimen/H4</dimen>
     <dimen name="livros_livro_subtitle">@dimen/H5</dimen>

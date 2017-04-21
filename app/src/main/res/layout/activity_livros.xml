@@ -60,14 +60,14 @@
                 android:layout_marginBottom="5dp"
                 android:background="@color/firstGray"
                 android:paddingBottom="5dp"
-                android:paddingLeft="5dp"
-                android:paddingRight="20dp"
+                android:paddingLeft="@dimen/padding_page_default"
+                android:paddingRight="@dimen/padding_page_default"
                 android:paddingTop="5dp">
 
-                <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+                <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imgItem"
-                    android:layout_width="120dp"
-                    android:layout_height="120dp"
+                    android:layout_width="@dimen/livros_livro_image_square"
+                    android:layout_height="@dimen/livros_livro_image_square"
                     android:layout_marginRight="5dp"
                     android:src="@drawable/imagemteste"
                     app:civ_border_color="@color/white"
@@ -103,8 +103,8 @@
         android:layout_below="@+id/tituloDiv"
         android:background="@color/firstGray"
         android:paddingBottom="10dp"
-        android:paddingLeft="20dp"
-        android:paddingRight="20dp"
+        android:paddingLeft="@dimen/padding_page_default"
+        android:paddingRight="@dimen/padding_page_default"
         android:paddingTop="5dp">
 
         <TextView

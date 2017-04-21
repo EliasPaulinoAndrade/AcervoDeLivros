@@ -111,6 +111,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
             <FrameLayout
+                android:paddingTop="10dp"
                 android:id="@+id/grafico"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -119,11 +120,11 @@
                 android:layout_marginRight="10dp"
                 android:background="@color/firstGray">
                 <com.example.elias.acervoapp.uiimplementacoes.GraficoPizza
-                    android:layout_width="200dp"
+                    android:layout_width="@dimen/inicio_grafico_square"
                     app:centerColor="@color/firstGray"
-                    app:raioInterno="70dp"
+                    app:raioInterno="@dimen/inicio_grafico_raio"
                     android:layout_gravity="center"
-                    android:layout_height="200dp">
+                    android:layout_height="@dimen/inicio_grafico_square">
                     <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
@@ -140,7 +141,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="60\nLivros"
-                    android:textSize="@dimen/H1"
+                    android:textSize="@dimen/inicio_grafico_text"
                     android:textColor="@color/secWhite"
                     android:layout_gravity="center"
                     android:gravity="center"/>
