@@ -21,7 +21,7 @@
         <TextView
             android:id="@+id/logoTxt"
             android:textColor="@color/secWhite"
-            android:textSize="30dp"
+            android:textSize="@dimen/H1"
             android:layout_marginTop="10dp"
             android:layout_below="@+id/logoImg"
             android:layout_width="wrap_content"
@@ -51,7 +51,7 @@
                         android:layout_height="wrap_content"
                         android:text="Livros"
                         android:textColor="@color/white"
-                        android:textSize="20dp">
+                        android:textSize="@dimen/inicio_item_title">
                     </TextView>
                     <ImageView
                         android:layout_width="0dp"
@@ -73,7 +73,7 @@
                         android:layout_height="wrap_content"
                         android:text="Categorias"
                         android:textColor="@color/white"
-                        android:textSize="20dp">
+                        android:textSize="@dimen/inicio_item_title">
                     </TextView>
                     <ImageView
                         android:layout_width="0dp"
@@ -94,7 +94,7 @@
                         android:layout_height="wrap_content"
                         android:text="Avisos"
                         android:textColor="@color/white"
-                        android:textSize="20dp">
+                        android:textSize="@dimen/inicio_item_title">
                     </TextView>
                     <ImageView
                         android:layout_width="0dp"
@@ -140,7 +140,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="60\nLivros"
-                    android:textSize="30dp"
+                    android:textSize="@dimen/H1"
                     android:textColor="@color/secWhite"
                     android:layout_gravity="center"
                     android:gravity="center"/>
@@ -170,7 +170,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Guardados"
-                        android:textSize="15dp"
+                        android:textSize="@dimen/H4"
                         android:textColor="@color/secWhite"
                         android:layout_centerHorizontal="true"/>
                     <TextView
@@ -180,7 +180,7 @@
                         android:textColor="@color/secWhite"
                         android:layout_below="@id/guardados"
                         android:layout_centerHorizontal="true"
-                        android:textSize="25dp"/>
+                        android:textSize="@dimen/H2"/>
                 </RelativeLayout>
 
                 <RelativeLayout
@@ -201,7 +201,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Emprestados"
-                        android:textSize="15dp"
+                        android:textSize="@dimen/H4"
                         android:textColor="@color/secWhite"
                         android:layout_centerHorizontal="true"/>
                     <TextView
@@ -211,7 +211,7 @@
                         android:textColor="@color/secWhite"
                         android:layout_below="@id/guardados2"
                         android:layout_centerHorizontal="true"
-                        android:textSize="25dp"/>
+                        android:textSize="@dimen/H2"/>
                 </RelativeLayout>
             </LinearLayout>
         </RelativeLayout>

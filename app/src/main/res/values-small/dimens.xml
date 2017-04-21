@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--Fontes-->
+    <dimen name="inputDefault">@dimen/H5</dimen>
+    <dimen name="inputBusca">@dimen/H6</dimen>
+    <dimen name="inicio_item_title">@dimen/H6</dimen>
+    <dimen name="livros_categorias_busca_resultado">@dimen/H6</dimen>
+    <dimen name="livros_livro_title">@dimen/H4</dimen>
+    <dimen name="livros_livro_subtitle">@dimen/H5</dimen>
+    <dimen name="categorias_item_title">@dimen/H4</dimen>
+    <dimen name="detalhe_page_title">@dimen/H4</dimen>
+    <dimen name="detalhe_page_sub_title">@dimen/H5</dimen>
+    <dimen name="detelha_item_title">@dimen/H4</dimen>
+    <dimen name="detalhe_default_title">@dimen/H3</dimen>
+    <dimen name="detalhe_default_item">@dimen/H6</dimen>
+    <dimen name="detalhe_remove_title">@dimen/H4</dimen>
+    <dimen name="detelahe_status_title">@dimen/H4</dimen>
+    <dimen name="detalhe_status_troca">@dimen/H5</dimen>
+    <dimen name="detelhe_status_item">@dimen/H4</dimen>
+    <!--Fontes-->
+</resources>

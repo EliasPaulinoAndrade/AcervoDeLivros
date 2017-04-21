@@ -32,7 +32,7 @@
                 android:layout_alignParentBottom="true"
                 android:text="40"
                 android:textColor="@color/white"
-                android:textSize="90dp" />
+                android:textSize="@dimen/BigH1" />
 
             <ImageView
                 android:layout_width="100dp"
@@ -80,7 +80,7 @@
                     android:layout_toRightOf="@id/imgItem"
                     android:text="Pre Arrival Guide For Exchange Stud..."
                     android:textColor="@color/secWhite"
-                    android:textSize="20dp" />
+                    android:textSize="@dimen/livros_livro_title" />
 
                 <TextView
                     android:layout_width="match_parent"
@@ -89,7 +89,7 @@
                     android:layout_toRightOf="@+id/imgItem"
                     android:text="Students who will be a part of Koç University should read the Pre-Arrival Guide carefully."
                     android:textColor="@color/firstBlue"
-                    android:textSize="17dp" />
+                    android:textSize="@dimen/livros_livro_subtitle" />
             </RelativeLayout>
         </LinearLayout>
     </ScrollView>
@@ -113,7 +113,7 @@
             android:layout_height="wrap_content"
             android:text="40 RESULTADOS PARA LIVRO TAL"
             android:textColor="@color/white"
-            android:textSize="20dp" />
+            android:textSize="@dimen/livros_categorias_busca_resultado" />
 
         <Button
             android:id="@+id/buscaButton"
@@ -146,7 +146,7 @@
             android:paddingTop="5dp"
             android:textColor="@color/firstBlue"
             android:textColorHint="@color/firstBlue"
-            android:textSize="15dp" />
+            android:textSize="@dimen/inputBusca" />
 
         <Spinner
             android:id="@+id/spinner"
@@ -157,7 +157,6 @@
             android:background="@drawable/spinner_fundo"
             android:entries="@array/livrosCategorias"
             android:paddingRight="30dp"
-
             android:prompt="@string/padraoCategoria"></Spinner>
     </RelativeLayout>
 </RelativeLayout>

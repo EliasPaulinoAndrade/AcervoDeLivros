@@ -1,4 +1,33 @@
 <resources>
+    <!--Fontes-->
+    <dimen name="inputBusca">@dimen/H4</dimen>
+    <dimen name="inputDefault">@dimen/H3</dimen>
+    <dimen name="H1">30sp</dimen>
+    <dimen name="H2">25sp</dimen>
+    <dimen name="H3">20sp</dimen>
+    <dimen name="H4">17sp</dimen>
+    <dimen name="H5">15sp</dimen>
+    <dimen name="H6">13sp</dimen>
+    <dimen name="BigH1">90sp</dimen>
+    <dimen name="BigH2">50sp</dimen>
+        <!--Fontes Que Mudam-->
+            <dimen name="inicio_item_title">@dimen/H3</dimen>
+            <dimen name="livros_categorias_busca_resultado">@dimen/H3</dimen>
+            <dimen name="livros_livro_title">@dimen/H2</dimen>
+            <dimen name="livros_livro_subtitle">@dimen/H3</dimen>
+            <dimen name="categorias_item_title">@dimen/H2</dimen>
+            <dimen name="detalhe_page_title">@dimen/H2</dimen>
+            <dimen name="detalhe_page_sub_title">@dimen/H3</dimen>
+            <dimen name="detalhe_item_title">@dimen/H3</dimen>
+            <dimen name="detalhe_default_title">@dimen/H1</dimen>
+            <dimen name="detalhe_default_item">@dimen/H4</dimen>
+            <dimen name="detalhe_remove_title">@dimen/H2</dimen>
+            <dimen name="detelahe_status_title">@dimen/H2</dimen>
+            <dimen name="detalhe_status_troca">@dimen/H3</dimen>
+            <dimen name="detelhe_status_item">@dimen/H2</dimen>
+        <!--Fontes Que Mudam-->
+    <!--Fontes-->
+
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>

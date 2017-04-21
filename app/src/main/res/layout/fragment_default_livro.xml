@@ -12,7 +12,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="History"
-            android:textSize="30dp"
+            android:textSize="@dimen/detalhe_default_title"
             android:textColor="@color/secWhite"/>
     </RelativeLayout>
     <LinearLayout
@@ -34,14 +34,14 @@
                 android:layout_height="wrap_content"
                 android:text="12/09"
                 android:textColor="@color/secWhite"
-                android:textSize="17dp">
+                android:textSize="@dimen/detalhe_default_item">
             </TextView>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Pego De João"
-                android:textSize="17dp"
+                android:textSize="@dimen/detalhe_default_item"
                 android:textColor="@color/secWhite"
                 android:drawableLeft="@drawable/pego"
                 android:drawablePadding="10dp"
@@ -58,14 +58,14 @@
                 android:layout_height="wrap_content"
                 android:text="12/09"
                 android:textColor="@color/secWhite"
-                android:textSize="17dp">
+                android:textSize="@dimen/detalhe_default_item">
             </TextView>
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Emprestado Ao João"
-                android:textSize="17dp"
+                android:textSize="@dimen/detalhe_default_item"
                 android:textColor="@color/secWhite"
                 android:drawableLeft="@drawable/emprestado"
                 android:drawablePadding="10dp"

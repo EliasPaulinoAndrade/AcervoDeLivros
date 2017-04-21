@@ -8,7 +8,7 @@
         android:id="@+id/titleEdit"
         android:text="Emprestado Ao João"
         android:textAlignment="center"
-        android:textSize="25dp"
+        android:textSize="@dimen/detelahe_status_title"
         android:maxLines="1"
         android:textColorHint="@color/secWhite"
         android:paddingBottom="10dp"
@@ -26,7 +26,7 @@
         android:layout_height="wrap_content"
         android:text="Trocar Status: "
         android:textColor="@color/secWhite"
-        android:textSize="20dp"/>
+        android:textSize="@dimen/detalhe_status_troca"/>
 
     <LinearLayout
         android:id="@+id/opts"
@@ -39,26 +39,28 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="...Empreatado a .."
-            android:textSize="25dp"
+            android:textSize="@dimen/detelhe_status_item"
             android:textColor="@color/white"/>
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="...Guardado..."
-            android:textSize="25dp"
+            android:textSize="@dimen/detelhe_status_item"
             android:textColor="@color/white"/>
     </LinearLayout>
     <Button
         android:background="@drawable/button_status_livro"
-        android:layout_marginTop="20dp"
-        android:layout_below="@id/opts"
+        android:layout_marginTop="18dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/white"
-        android:textSize="20dp"
+        android:textSize="@dimen/inputDefault"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="Trocar"/>
+        android:text="Trocar"
+        android:layout_below="@+id/opts"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 </RelativeLayout>

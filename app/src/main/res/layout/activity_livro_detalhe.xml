@@ -20,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Pre Arrival Guide For Exchange Students. Pre Arrival Guide For Exchange Students"
-            android:textSize="25dp"
+            android:textSize="@dimen/detalhe_page_title"
             android:gravity="center"
             android:textColor="@color/white"
             />
@@ -29,7 +29,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/titleLivroDetail"
             android:text="Students who will be a part of Koç University should read the Pre-Arrival Guide carefully."
-            android:textSize="20dp"
+            android:textSize="@dimen/detalhe_page_sub_title"
             android:textColor="@color/secWhite"
             android:gravity="center"/>
     </RelativeLayout>
@@ -80,7 +80,7 @@
                     android:text="Edit"
                     android:layout_gravity="bottom"
                     android:gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/detelha_item_title"
                     android:textColor="@color/white"
                     android:paddingTop="50dp"/>
             </FrameLayout>
@@ -107,7 +107,7 @@
                     android:text="Remove"
                     android:layout_gravity="bottom"
                     android:gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/detelha_item_title"
                     android:textColor="@color/white"
                     android:paddingTop="50dp"/>
             </FrameLayout>
@@ -134,7 +134,7 @@
                     android:text="Status"
                     android:layout_gravity="bottom"
                     android:gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="@dimen/detelha_item_title"
                     android:textColor="@color/white"
                     android:paddingTop="50dp"/>
             </FrameLayout>

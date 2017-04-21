@@ -28,7 +28,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:text="40"
-                android:textSize="90dp"
+                android:textSize="@dimen/BigH1"
                 android:layout_alignParentBottom="true"
                 android:textColor="@color/white"/>
             <ImageView
@@ -56,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:textSize="20dp"
+            android:textSize="@dimen/livros_categorias_busca_resultado"
             android:text="40 RESULTADOS PARA CATEGORIA TAL"/>
         <Button
             android:layout_below="@+id/resultadoPesquisa"
@@ -80,7 +80,7 @@
             android:hint="Faça Sua Busca..."
             android:textColor="@color/firstGreen"
             android:textColorHint="@color/firstGreen"
-            android:textSize="15dp"
+            android:textSize="@dimen/inputBusca"
             android:background="@drawable/fundo_edit_green"
             android:layout_height="wrap_content"
             android:paddingBottom="5dp"
@@ -112,9 +112,8 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/white"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
-
             </FrameLayout>
             <FrameLayout
                 android:layout_width="match_parent"
@@ -130,7 +129,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
             <FrameLayout
@@ -147,7 +146,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
             <FrameLayout
@@ -164,7 +163,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
         </TableRow>
@@ -183,7 +182,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
             <FrameLayout
@@ -200,7 +199,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
             <FrameLayout
@@ -217,7 +216,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
             <FrameLayout
@@ -234,7 +233,7 @@
                     android:gravity="center"
                     android:layout_gravity="bottom"
                     android:textColor="@color/firstGreen"
-                    android:textSize="25dp"
+                    android:textSize="@dimen/categorias_item_title"
                     />
             </FrameLayout>
         </TableRow>
