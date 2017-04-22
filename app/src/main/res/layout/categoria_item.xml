@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content">
     <ImageView
         android:id="@+id/categoria_item_img"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/bookicon"/>
+        android:src="@drawable/folder"/>
     <TextView
+        android:layout_below="@id/categoria_item_img"
         android:id="@+id/categoria_item_texto"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Texto"
+        android:maxLines="2"
+        android:ellipsize="end"
         android:gravity="center"
-        android:layout_gravity="bottom"
         android:textColor="@color/firstGreen"
         android:textSize="@dimen/categorias_item_title"
         />
-</FrameLayout>
+</RelativeLayout>

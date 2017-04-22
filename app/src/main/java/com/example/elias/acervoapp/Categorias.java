@@ -16,7 +16,7 @@ public class Categorias extends AppCompatActivity {
         setContentView(R.layout.activity_categorias);
 
         ArrayList<String> itens = new ArrayList<String>();
-        itens.add("Terror");
+        itens.add("TerrorGrandessisisismoljllllljljljjljljljljl");
         itens.add("Ação");
         itens.add("Ficção");
         itens.add("Contos");

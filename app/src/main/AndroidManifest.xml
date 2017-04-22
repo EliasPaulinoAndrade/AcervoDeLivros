@@ -18,7 +18,7 @@
         </activity>
         <activity
             android:name=".Livros"
-            android:label="Livros Do Acervo"
+            android:label="@string/livros_title"
             android:theme="@style/livrosStyle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
@@ -26,20 +26,21 @@
         </activity>
         <activity
             android:name=".Categorias"
-            android:label="Categorias"
+            android:label="@string/categorias_title"
             android:theme="@style/categoriasStyle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".Inicio" />
+        </activity>
+        <activity
+            android:name=".Inicio"
+            android:theme="@style/inicioStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".Inicio"
-            android:theme="@style/inicioStyle"></activity>
         <activity
             android:name=".Login"
             android:theme="@style/loginStyle"></activity>

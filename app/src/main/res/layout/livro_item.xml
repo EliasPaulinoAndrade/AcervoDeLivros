@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:background="@color/firstGray"
+    android:paddingBottom="5dp"
+    android:paddingLeft="@dimen/padding_page_default"
+    android:paddingRight="@dimen/padding_page_default"
+    android:paddingTop="5dp">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/imgItem"
+        android:layout_width="@dimen/livros_livro_image_square"
+        android:layout_height="@dimen/livros_livro_image_square"
+        android:layout_marginRight="15dp"
+        android:src="@drawable/livrode"
+        app:civ_border_color="@color/white"
+        app:civ_border_width="0dp" />
+
+    <TextView
+        android:id="@+id/titleItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/imgItem"
+        android:text="Pre Arrival Guide For Exchange Stud..."
+        android:textColor="@color/secWhite"
+        android:textSize="@dimen/livros_livro_title" />
+
+    <TextView
+        android:id="@+id/subTitleItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/titleItem"
+        android:layout_toRightOf="@+id/imgItem"
+        android:text="Students who will be a part of Koç University should read the Pre-Arrival Guide carefully."
+        android:textColor="@color/firstBlue"
+        android:textSize="@dimen/livros_livro_subtitle" />
+</RelativeLayout>

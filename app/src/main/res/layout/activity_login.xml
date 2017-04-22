@@ -23,7 +23,7 @@
         android:id="@+id/titleLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Acervo"
+        android:text="@string/app_name"
         android:textSize="@dimen/BigH2"
         android:textStyle="bold"
         android:textColor="@color/firstBlue"
@@ -43,7 +43,7 @@
         android:layout_below="@id/titleLogin"
         android:textColor="@color/firstBlue"
         android:textColorHint="@color/firstBlue"
-        android:hint="Email"
+        android:hint="@string/login_input_email"
         android:textSize="@dimen/inputDefault"
         android:paddingLeft="20dp"
         android:paddingTop="20dp"
@@ -54,7 +54,7 @@
     <EditText
         android:layout_marginTop="35dp"
         android:layout_below="@id/emailLogin"
-        android:hint="Senha"
+        android:hint="@string/login_input_senha"
         android:id="@+id/senhaLogin"
         android:textColor="@color/firstBlue"
         android:textColorHint="@color/firstBlue"
@@ -74,6 +74,6 @@
         android:background="@drawable/loginbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login_button"
         android:textColor="@color/secGray"/>
 </RelativeLayout>

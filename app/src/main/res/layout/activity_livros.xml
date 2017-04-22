@@ -42,58 +42,15 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <ScrollView
+    <ListView
+        android:dividerHeight="5dp"
+        android:layout_below="@+id/pesquisaDiv"
+        android:paddingTop="20dp"
+        android:id="@+id/livros_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@+id/pesquisaDiv">
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:orientation="vertical"
-            android:paddingTop="15dp">
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="5dp"
-                android:background="@color/firstGray"
-                android:paddingBottom="5dp"
-                android:paddingLeft="@dimen/padding_page_default"
-                android:paddingRight="@dimen/padding_page_default"
-                android:paddingTop="5dp">
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/imgItem"
-                    android:layout_width="@dimen/livros_livro_image_square"
-                    android:layout_height="@dimen/livros_livro_image_square"
-                    android:layout_marginRight="5dp"
-                    android:src="@drawable/imagemteste"
-                    app:civ_border_color="@color/white"
-                    app:civ_border_width="0dp" />
-
-                <TextView
-                    android:id="@+id/titleItem"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_toRightOf="@id/imgItem"
-                    android:text="Pre Arrival Guide For Exchange Stud..."
-                    android:textColor="@color/secWhite"
-                    android:textSize="@dimen/livros_livro_title" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@id/titleItem"
-                    android:layout_toRightOf="@+id/imgItem"
-                    android:text="Students who will be a part of Koç University should read the Pre-Arrival Guide carefully."
-                    android:textColor="@color/firstBlue"
-                    android:textSize="@dimen/livros_livro_subtitle" />
-            </RelativeLayout>
-        </LinearLayout>
-    </ScrollView>
-
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/livro_item">
+    </ListView>
     <RelativeLayout
         android:id="@+id/pesquisaDiv"
         android:layout_width="match_parent"
@@ -121,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/resultadoPesquisa"
             android:background="@color/firstBlue"
-            android:drawableLeft="@drawable/busca2"
+            android:drawableLeft="@drawable/busca"
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:paddingBottom="10dp"
@@ -159,4 +116,10 @@
             android:paddingRight="30dp"
             android:prompt="@string/padraoCategoria"></Spinner>
     </RelativeLayout>
+    <View
+        android:background="@color/thirdGray"
+        android:layout_below="@id/pesquisaDiv"
+        android:layout_height="3dp"
+        android:layout_width="match_parent">
+    </View>
 </RelativeLayout>

@@ -1,40 +1,40 @@
 package com.example.elias.acervoapp.adapters;
 
 import android.content.Context;
-import android.util.Log;
+import android.text.Layout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.example.elias.acervoapp.models.Livro;
 import com.example.elias.acervoapp.R;
 
 import java.util.ArrayList;
-import java.util.zip.Inflater;
 
 /**
- * Created by Elias Paulino on 21/04/2017.
+ * Created by Elias Paulino on 22/04/2017.
  */
 
-public class CategoriaAdapter extends BaseAdapter {
+public class LivroAdapter extends BaseAdapter {
+    private ArrayList<Livro> livros;
     private Context ctx;
-    private ArrayList<String> nomes;
-    public CategoriaAdapter(Context ctx, ArrayList<String> nomes) {
+
+    public LivroAdapter(ArrayList<Livro> livros, Context ctx) {
+        this.livros = livros;
         this.ctx = ctx;
-        this.nomes = nomes;
     }
+
     @Override
     public int getCount() {
-        return nomes.size();
+        return livros.size();
     }
 
     @Override
     public Object getItem(int i) {
-        return nomes.get(i);
+        return livros.get(i);
     }
 
     @Override
@@ -44,12 +44,13 @@ public class CategoriaAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        String nome = nomes.get(i);
+        Livro itemLivro = livros.get(i);
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
-        RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.categoria_item, viewGroup, false);
-        TextView texto = (TextView) item.findViewById(R.id.categoria_item_texto);
-        texto.setText(nome);
-        ImageView img = (ImageView) item.findViewById(R.id.categoria_item_img);
+        RelativeLayout item  = (RelativeLayout) inflater.inflate(R.layout.livro_item, viewGroup, false);
+        TextView title = (TextView) item.findViewById(R.id.titleItem);
+        TextView subTitle = (TextView)item.findViewById(R.id.subTitleItem);
+        title.setText(itemLivro.getTitulo());
+        subTitle.setText(itemLivro.getDescricao());
         return item;
     }
 }

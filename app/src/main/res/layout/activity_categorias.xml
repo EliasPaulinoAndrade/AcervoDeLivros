@@ -63,7 +63,7 @@
             android:id="@+id/buscaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:drawableLeft="@drawable/busca2"
+            android:drawableLeft="@drawable/busca"
             android:minHeight="0dp"
             android:minWidth="0dp"
             android:paddingRight="15dp"
@@ -94,8 +94,9 @@
         tools:listitem="@layout/categoria_item"
         android:layout_marginTop="20dp"
         android:verticalSpacing="20dp"
+        android:horizontalSpacing="40dp"
         android:id="@+id/gridview"
-        android:columnWidth="100dp"
+        android:columnWidth="80dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:gravity="center"
@@ -105,4 +106,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </GridView>
+    <View
+        android:background="@color/thirdGray"
+        android:layout_below="@id/pesquisaDiv"
+        android:layout_height="3dp"
+        android:layout_width="match_parent">
+    </View>
 </RelativeLayout>

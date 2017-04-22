@@ -1,4 +1,13 @@
 <resources>
+    <string name="categorias_title">Categorias</string>
+    <string name="livros_title">Livros Do Acervo</string>
+    <string name="login_input_email">Email..</string>
+    <string name="login_input_senha">Senha..</string>
+    <string name="login_button">Login</string>
+    <string name="inicio_item_livros">Livros</string>
+    <string name="inicio_item_categorias">Categorias</string>
+    <string name="inicio_item_avisos">Avisos</string>
+
     <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
     <string-array name="livrosCategorias">

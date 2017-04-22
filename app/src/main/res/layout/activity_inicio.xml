@@ -27,8 +27,7 @@
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:text="ACERVO"/>
-
+            android:text="@string/app_name" />
         <TableLayout
             android:id="@+id/options"
             android:layout_marginTop="20dp"
@@ -49,7 +48,7 @@
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Livros"
+                        android:text="@string/inicio_item_livros"
                         android:textColor="@color/white"
                         android:textSize="@dimen/inicio_item_title">
                     </TextView>
@@ -58,7 +57,7 @@
                         android:layout_height="0dp"
                         app:layout_widthPercent="40%"
                         app:layout_heightPercent="40%"
-                        android:src="@drawable/busca"
+                        android:src="@drawable/livro"
                         android:layout_gravity="center"/>
                 </com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout>
                 <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
@@ -71,7 +70,7 @@
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Categorias"
+                        android:text="@string/inicio_item_categorias"
                         android:textColor="@color/white"
                         android:textSize="@dimen/inicio_item_title">
                     </TextView>
@@ -92,7 +91,7 @@
                         android:padding="5dp"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Avisos"
+                        android:text="@string/inicio_item_avisos"
                         android:textColor="@color/white"
                         android:textSize="@dimen/inicio_item_title">
                     </TextView>
@@ -101,7 +100,7 @@
                         android:layout_height="0dp"
                         app:layout_widthPercent="40%"
                         app:layout_heightPercent="40%"
-                        android:src="@drawable/avisos"
+                        android:src="@drawable/aviso"
                         android:layout_gravity="center"/>
                 </com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout>
             </TableRow>

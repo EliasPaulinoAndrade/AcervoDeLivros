@@ -7,7 +7,7 @@
     <EditText
         android:textSize="@dimen/inputDefault"
         android:id="@+id/titleEdit"
-        android:drawableLeft="@drawable/item1"
+        android:drawableLeft="@drawable/titleicon"
         android:drawablePadding="10dp"
         android:hint="Titulo..."
         android:maxLines="1"
