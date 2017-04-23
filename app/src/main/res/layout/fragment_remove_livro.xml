@@ -21,7 +21,7 @@
         android:layout_marginTop="20dp"
         android:id="@+id/aviso"
         android:layout_below="@id/exclam"
-        android:text="Realmente Deseja REMOVER Esse Livro Dos Registros?"
+        android:text="@string/detalhe_remover_titulo"
         android:textSize="@dimen/detalhe_remove_title"
         android:textColor="@color/white"
         android:textAlignment="center"
@@ -39,5 +39,5 @@
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="Remover"/>
+        android:text="@string/detalhe_remover_button"/>
 </RelativeLayout>

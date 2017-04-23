@@ -9,7 +9,7 @@
         android:id="@+id/titleEdit"
         android:drawableLeft="@drawable/titleicon"
         android:drawablePadding="10dp"
-        android:hint="Titulo..."
+        android:hint="@string/detalhe_editar_input_titulo"
         android:maxLines="1"
         android:textColorHint="@color/secWhite"
         android:paddingBottom="10dp"
@@ -26,7 +26,7 @@
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
         android:textColor="@color/secWhite"
-        android:hint="Descrição..."
+        android:hint="@string/detalhe_editar_input_descricao"
         android:layout_below="@id/titleEdit"
         android:minLines="5"
         android:layout_marginTop="20dp"
@@ -47,5 +47,5 @@
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="Salvar"/>
+        android:text="@string/detalhe_editar_button"/>
 </RelativeLayout>

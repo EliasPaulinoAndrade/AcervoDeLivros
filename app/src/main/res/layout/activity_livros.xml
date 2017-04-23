@@ -54,7 +54,7 @@
     <RelativeLayout
         android:id="@+id/pesquisaDiv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="115dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_below="@+id/tituloDiv"
@@ -95,7 +95,7 @@
             android:layout_toRightOf="@id/buscaButton"
             android:background="@drawable/fundo_edit_blue"
             android:ellipsize="end"
-            android:hint="Faça Sua Busca..."
+            android:hint="@string/livros_categoria_input"
             android:inputType="text"
             android:maxLines="1"
             android:paddingBottom="5dp"
@@ -109,12 +109,25 @@
             android:id="@+id/spinner"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/buscaEdit"
-            android:layout_marginTop="5dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
             android:background="@drawable/spinner_fundo"
             android:entries="@array/livrosCategorias"
             android:paddingRight="30dp"
             android:prompt="@string/padraoCategoria"></Spinner>
+        <TextView
+            android:textSize="@dimen/H3"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/novolivro"
+            android:gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/secWhite"
+            android:text="@string/livros_novo"
+            android:paddingTop="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
     <View
         android:background="@color/thirdGray"

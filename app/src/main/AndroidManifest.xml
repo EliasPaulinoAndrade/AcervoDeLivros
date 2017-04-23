@@ -10,7 +10,7 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".LivroDetalhe"
-            android:label=""
+            android:label="@string/detalhe_title"
             android:theme="@style/livroDetalheStyle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

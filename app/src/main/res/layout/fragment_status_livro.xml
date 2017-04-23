@@ -24,7 +24,7 @@
         android:layout_below="@id/titleEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Trocar Status: "
+        android:text="@string/detalhe_status_troca_titulo"
         android:textColor="@color/secWhite"
         android:textSize="@dimen/detalhe_status_troca"/>
 
@@ -59,7 +59,7 @@
         android:paddingBottom="10dp"
         android:paddingLeft="20dp"
         android:paddingRight="20dp"
-        android:text="Trocar"
+        android:text="@string/detalhe_status_button"
         android:layout_below="@+id/opts"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />

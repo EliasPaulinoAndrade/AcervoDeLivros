@@ -1,4 +1,5 @@
 <resources>
+    <string name="detalhe_title"> </string>
     <string name="categorias_title">Categorias</string>
     <string name="livros_title">Livros Do Acervo</string>
     <string name="login_input_email">Email..</string>
@@ -7,6 +8,20 @@
     <string name="inicio_item_livros">Livros</string>
     <string name="inicio_item_categorias">Categorias</string>
     <string name="inicio_item_avisos">Avisos</string>
+    <string name="livros_categoria_input">Faça Sua Busca...</string>
+    <string name="livros_novo">Novo</string>
+    <string name="categorias_novo">Novo</string>
+    <string name="detalhe_opcao_editar">Editar</string>
+    <string name="detalhe_opcao_remover">Remover</string>
+    <string name="detalhe_opcao_status">Status</string>
+    <string name="detalhe_default_titulo">Histórico</string>
+    <string name="detalhe_editar_input_titulo">Titulo...</string>
+    <string name="detalhe_editar_input_descricao">Descrição...</string>
+    <string name="detalhe_editar_button">Salvar</string>
+    <string name="detalhe_remover_titulo">Realmente Deseja REMOVER Esse Livro Dos Registros?</string>
+    <string name="detalhe_remover_button">Remover</string>
+    <string name="detalhe_status_troca_titulo">Trocar Status:</string>
+    <string name="detalhe_status_button">Trocar</string>
 
     <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
