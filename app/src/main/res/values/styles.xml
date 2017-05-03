@@ -24,4 +24,7 @@
     <style name="loginStyle" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+    <style name="registroStyle" parent="Theme.AppCompat.Light.NoActionBar">
+
+    </style>
 </resources>

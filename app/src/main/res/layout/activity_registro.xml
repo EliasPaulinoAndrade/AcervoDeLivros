@@ -20,7 +20,7 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="58dp" />
     <TextView
-        android:id="@+id/titleLogin"
+        android:id="@+id/titleRegistro"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/app_name"
@@ -32,15 +32,29 @@
     <ImageView
         android:layout_alignParentTop="true"
         android:layout_marginTop="20dp"
-        android:id="@+id/logoLogin"
+        android:id="@+id/logoRegistro"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:src="@drawable/coruja"
-        android:layout_alignRight="@id/titleLogin"/>
+        android:layout_alignRight="@id/titleRegistro"/>
     <EditText
-        android:id="@+id/emailLogin"
+        android:id="@+id/nameRegistro"
         android:layout_marginTop="50dp"
-        android:layout_below="@id/titleLogin"
+        android:layout_below="@id/titleRegistro"
+        android:textColor="@color/firstBlue"
+        android:textColorHint="@color/firstBlue"
+        android:hint="@string/registro_input_nome"
+        android:textSize="@dimen/inputDefault"
+        android:paddingLeft="20dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"
+        android:background="@drawable/backlogininput"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <EditText
+        android:id="@+id/emailRegistro"
+        android:layout_marginTop="35dp"
+        android:layout_below="@id/nameRegistro"
         android:textColor="@color/firstBlue"
         android:textColorHint="@color/firstBlue"
         android:hint="@string/login_registro_input_email"
@@ -53,7 +67,7 @@
         android:layout_height="wrap_content" />
     <EditText
         android:layout_marginTop="35dp"
-        android:layout_below="@id/emailLogin"
+        android:layout_below="@id/emailRegistro"
         android:hint="@string/login_registro_input_senha"
         android:id="@+id/senhaLogin"
         android:textColor="@color/firstBlue"
@@ -74,6 +88,7 @@
         android:background="@drawable/loginbutton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/login_button"
-        android:textColor="@color/secGray"/>
+        android:text="@string/registro_button"
+        android:textColor="@color/secGray"
+        android:onClick="registrarUsuario"/>
 </RelativeLayout>
