@@ -30,5 +30,18 @@ dependencies {
     compile 'com.android.support:percent:23.3.0'
     compile 'com.android.support:support-v4:25.3.1'
     compile 'com.android.support:design:22.2.0'
+
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.3'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.3'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.3'
+
     testCompile 'junit:junit:4.12'
+}
+android {
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/NOTICE.txt'
+        exclude 'META-INF/LICENSE'
+        exclude 'META-INF/NOTICE'
+    }
 }

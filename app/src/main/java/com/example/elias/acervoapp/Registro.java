@@ -6,8 +6,10 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 
+import com.example.elias.acervoapp.database.Db;
 import com.example.elias.acervoapp.database.UsuarioDb;
 import com.example.elias.acervoapp.models.Usuario;
+import com.example.elias.acervoapp.server.Server;
 
 import java.util.Date;
 
@@ -27,8 +29,8 @@ public class Registro extends AppCompatActivity {
         String senha = senhaET.getText().toString();
         Date hoje = new Date();
         Usuario usuario = new Usuario(hoje, nome, senha, email);
-        UsuarioDb usuarioDb = new UsuarioDb(usuario);
-        usuarioDb.save();
         Log.d("REGISTRO", "registrarUsuario: " + usuario);
+        Server sv = new Server();
+        sv.conectarServer("usuario", "index");
     }
 }
