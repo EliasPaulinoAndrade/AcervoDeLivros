@@ -53,6 +53,7 @@
         android:layout_height="wrap_content" />
     <EditText
         android:id="@+id/emailRegistro"
+        android:inputType="textEmailAddress"
         android:layout_marginTop="35dp"
         android:layout_below="@id/nameRegistro"
         android:textColor="@color/firstBlue"

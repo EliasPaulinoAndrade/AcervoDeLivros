@@ -8,12 +8,13 @@ import android.widget.EditText;
 
 import com.example.elias.acervoapp.database.Db;
 import com.example.elias.acervoapp.database.UsuarioDb;
+import com.example.elias.acervoapp.interfaces.ServerListener;
 import com.example.elias.acervoapp.models.Usuario;
 import com.example.elias.acervoapp.server.Server;
 
 import java.util.Date;
 
-public class Registro extends AppCompatActivity {
+public class Registro extends AppCompatActivity implements ServerListener{
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,8 +30,13 @@ public class Registro extends AppCompatActivity {
         String senha = senhaET.getText().toString();
         Date hoje = new Date();
         Usuario usuario = new Usuario(hoje, nome, senha, email);
-        Log.d("REGISTRO", "registrarUsuario: " + usuario);
-        Server sv = new Server();
-        sv.conectarServer("usuario", "index");
+
+        Server sv = new Server(this);
+        sv.sendServer("usuario", "registro", usuario, "usuario");
+    }
+
+    @Override
+    public void retorno(String retorno) {
+        Log.d("REORNO", "retorno: "+retorno);
     }
 }
