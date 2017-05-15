@@ -13,6 +13,9 @@ public class Usuario {
     private String senha;
     private String email;
 
+    public Usuario(){
+        
+    }
     public Usuario(Date dataCriacao, String nome, String senha, String email) {
         this.dataCriacao = dataCriacao;
         this.nome = nome;

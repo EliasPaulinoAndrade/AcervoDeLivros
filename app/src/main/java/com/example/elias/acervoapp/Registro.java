@@ -13,6 +13,7 @@ import com.example.elias.acervoapp.models.Usuario;
 import com.example.elias.acervoapp.server.Server;
 
 import java.util.Date;
+import java.util.HashMap;
 
 public class Registro extends AppCompatActivity implements ServerListener{
 
@@ -24,17 +25,20 @@ public class Registro extends AppCompatActivity implements ServerListener{
     public void registrarUsuario(View v){
         EditText nomeET = (EditText) findViewById(R.id.nameRegistro);
         EditText emailET = (EditText) findViewById(R.id.emailRegistro);
-        EditText senhaET = (EditText) findViewById(R.id.senhaLogin);
+        EditText senhaET = (EditText) findViewById(R.id.senhaRegistro);
         String nome = nomeET.getText().toString();
         String email = emailET.getText().toString();
         String senha = senhaET.getText().toString();
         Date hoje = new Date();
-        Usuario usuario = new Usuario(hoje, nome, senha, email);
 
-        Server sv = new Server(this);
-        sv.sendServer("usuario", "registro", usuario, "usuario");
+        Server sv = new Server();
+        sv.setListener(this);
+        HashMap<String, String> dados = new HashMap<>();
+        dados.put("nome", nome);
+        dados.put("senha", senha);
+        dados.put("email", email);
+        sv.sendServer("usuario", "registro", dados);
     }
-
     @Override
     public void retorno(String retorno) {
         Log.d("REORNO", "retorno: "+retorno);
