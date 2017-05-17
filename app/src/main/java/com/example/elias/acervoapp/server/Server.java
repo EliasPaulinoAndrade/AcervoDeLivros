@@ -46,6 +46,7 @@ public class Server {
     public void sendServer(final String controller, final String action, final HashMap<String, String> itens){
         final String localServer = this.localServer;
         final StringBuilder retorno = new StringBuilder();
+        retorno.append("");
         final ServerListener listener = this.listener;
         new AsyncTask<Void, Void, Void>(){
             @Override
@@ -71,7 +72,6 @@ public class Server {
                     }
                     wr.close();
                     bufRd.close();
-
                 } catch (MalformedURLException e) {
                     e.printStackTrace();
                 } catch (IOException e) {

@@ -2,6 +2,7 @@ package com.example.elias.acervoapp;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,7 +40,7 @@ public class Login extends AppCompatActivity implements ServerListener{
     public void retorno(String resultado)  {
         ObjectMapper obj = new ObjectMapper();
         Usuario usuario = null;
-        Intent inte = new Intent();
+        Intent inte = new Intent(this, Inicio.class);
         try {
             usuario = obj.readValue(resultado, Usuario.class);
         } catch (IOException e) {
@@ -47,10 +48,12 @@ public class Login extends AppCompatActivity implements ServerListener{
         }
         if(usuario==null)
             return ;
-        SharedPreferences shared = getPreferences(MODE_PRIVATE);
+        SharedPreferences shared = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = shared.edit();
         editor.putString("email", usuario.getEmail());
         editor.putInt("id", usuario.getId());
+        editor.commit();
+        startActivity(inte);
         Log.d("RETORNO", "retorno: "+usuario);
     }
 }
