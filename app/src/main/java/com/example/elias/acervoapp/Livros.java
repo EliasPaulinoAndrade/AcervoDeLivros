@@ -1,10 +1,14 @@
 package com.example.elias.acervoapp;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
@@ -18,10 +22,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 
 public class Livros extends AppCompatActivity implements ServerListener{
 
+    ListView listView;
+    LivroAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,19 +47,29 @@ public class Livros extends AppCompatActivity implements ServerListener{
         hs.put("id", Integer.toString(id));
         sv.setListener(this);
         sv.sendServer("livro", "getLivrosFromUsuario", hs);
-        ArrayList<Livro> livros = new ArrayList<Livro>();
-        livros.add(new Livro("titulo1", "descricao"));
-        livros.add(new Livro("titulo2", "descricao"));
-        livros.add(new Livro("titulo3", "descricao"));
-        LivroAdapter adapter = new LivroAdapter(livros, getApplicationContext());
-        ListView listView = (ListView) findViewById(R.id.livros_listview);
-        listView.setAdapter(adapter);
     }
 
     @Override
     public void retorno(String resultado) throws IOException {
+        final Intent it = new Intent(this, LivroDetalhe.class);
         ObjectMapper map = new ObjectMapper();
-        map.readValue(resultado, LivroFisico[].class);
-        Log.d("DEU", "retorno: "+resultado);
+        LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
+        Log.d("DEU", "retorno: "+map.readValue(resultado, LivroFisico[].class)[0]);
+        List<LivroFisico> livros = Arrays.asList(livrosAr);
+
+        adapter = new LivroAdapter(livros, getApplicationContext());
+        listView = (ListView) findViewById(R.id.livros_listview);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                LivroFisico livro = (LivroFisico) adapter.getItem(position);
+                it.putExtra("titulo", livro.getLivro().getTitulo());
+                it.putExtra("descricaoFisica", livro.getDescricao());
+                it.putExtra("descricao", livro.getLivro().getDescricao());
+
+                startActivity(it);
+            }
+        });
+        listView.setAdapter(adapter);
     }
 }

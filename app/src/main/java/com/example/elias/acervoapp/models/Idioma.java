@@ -8,6 +8,9 @@ public class Idioma {
     private Integer id;
     private String nome;
 
+    public Idioma() {
+    }
+
     public Idioma(Integer id, String nome) {
         this.id = id;
         this.nome = nome;
@@ -27,5 +30,13 @@ public class Idioma {
 
     public void setNome(String nome) {
         this.nome = nome;
+    }
+
+    @Override
+    public String toString() {
+        return "Idioma{" +
+                "id=" + id +
+                ", nome='" + nome + '\'' +
+                '}';
     }
 }

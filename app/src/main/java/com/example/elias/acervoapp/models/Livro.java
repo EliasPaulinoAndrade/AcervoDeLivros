@@ -16,6 +16,11 @@ public class Livro {
     private Usuario criador;
     private Idioma idioma;
     private Editora editora;
+    private Integer edicao;
+
+    public Livro() {
+    }
+
     public Livro(String titulo, String descricao) {
         this.titulo = titulo;
         this.descricao = descricao;
@@ -31,6 +36,15 @@ public class Livro {
         this.idioma = idioma;
         this.editora = editora;
     }
+
+    public Integer getEdicao() {
+        return edicao;
+    }
+
+    public void setEdicao(Integer edicao) {
+        this.edicao = edicao;
+    }
+
     public Integer getnPaginas() {return nPaginas;}
 
     public void setnPaginas(Integer nPaginas) {this.nPaginas = nPaginas;}
@@ -73,5 +87,21 @@ public class Livro {
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    @Override
+    public String toString() {
+        return "Livro{" +
+                "id=" + id +
+                ", volume=" + volume +
+                ", nPaginas=" + nPaginas +
+                ", ano=" + ano +
+                ", titulo='" + titulo + '\'' +
+                ", descricao='" + descricao + '\'' +
+                ", criador=" + criador +
+                ", idioma=" + idioma +
+                ", editora=" + editora +
+                ", edicao=" + edicao +
+                '}';
     }
 }

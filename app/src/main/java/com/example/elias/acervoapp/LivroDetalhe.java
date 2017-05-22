@@ -20,6 +20,7 @@ import com.example.elias.acervoapp.fragmentos.DefaultLivroFragment;
 import com.example.elias.acervoapp.fragmentos.EditLivroFragment;
 import com.example.elias.acervoapp.fragmentos.RemoveLivroFragment;
 import com.example.elias.acervoapp.fragmentos.StatusLivroFragment;
+import com.example.elias.acervoapp.models.LivroFisico;
 
 public class LivroDetalhe extends AppCompatActivity {
     int mostrandoFragment;
@@ -28,6 +29,11 @@ public class LivroDetalhe extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livro_detalhe);
+        TextView titulo = (TextView) findViewById(R.id.titleLivroDetail);
+        TextView descricao = (TextView) findViewById(R.id.descricaoLivroDetail);
+        titulo.setText(getIntent().getStringExtra("titulo"));
+        descricao.setText(getIntent().getStringExtra("descricao"));
+
         this.mostrandoFragment = 0;//0 default, 1 edit, 2 remove, 3 status
     }
     private void setButton(View v, int colorBack, int imageIcon, int textColor){
