@@ -11,7 +11,9 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.example.elias.acervoapp.adapters.LivroAdapter;
 import com.example.elias.acervoapp.interfaces.ServerListener;
@@ -19,6 +21,8 @@ import com.example.elias.acervoapp.models.Livro;
 import com.example.elias.acervoapp.models.LivroFisico;
 import com.example.elias.acervoapp.server.Server;
 import com.fasterxml.jackson.databind.ObjectMapper;
+
+import org.w3c.dom.Text;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -56,6 +60,13 @@ public class Livros extends AppCompatActivity implements ServerListener{
         LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
         Log.d("DEU", "retorno: "+map.readValue(resultado, LivroFisico[].class)[0]);
         List<LivroFisico> livros = Arrays.asList(livrosAr);
+
+        TextView txt= (TextView)findViewById(R.id.numLivros);
+        txt.setText(Integer.toString(livros.size()));
+        Log.d("RETORNO", "size: "+livros.size());
+
+        ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
+        prog.setVisibility(View.INVISIBLE);
 
         adapter = new LivroAdapter(livros, getApplicationContext());
         listView = (ListView) findViewById(R.id.livros_listview);

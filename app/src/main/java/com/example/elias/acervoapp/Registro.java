@@ -1,5 +1,6 @@
 package com.example.elias.acervoapp;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -22,6 +23,10 @@ public class Registro extends AppCompatActivity implements ServerListener{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registro);
     }
+    public void irParaLogin(View v){
+        Intent inte = new Intent(this, Login.class);
+        startActivity(inte);
+    }
     public void registrarUsuario(View v){
         EditText nomeET = (EditText) findViewById(R.id.nameRegistro);
         EditText emailET = (EditText) findViewById(R.id.emailRegistro);
@@ -42,5 +47,7 @@ public class Registro extends AppCompatActivity implements ServerListener{
     @Override
     public void retorno(String retorno) {
         Log.d("REORNO", "retorno: "+retorno);
+        Intent inte = new Intent(this, Login.class);
+        startActivity(inte);
     }
 }

@@ -15,14 +15,14 @@
             android:layout_width="wrap_content"
             android:layout_height="70dp"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/d6"
             android:src="@drawable/coruja">
         </ImageView>
         <TextView
             android:id="@+id/logoTxt"
             android:textColor="@color/secWhite"
             android:textSize="@dimen/H1"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="@dimen/d2"
             android:layout_below="@+id/logoImg"
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"
@@ -31,19 +31,19 @@
             android:text="@string/app_name" />
         <TableLayout
             android:id="@+id/options"
-            android:layout_marginTop="20dp"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="@dimen/d2"
+            android:layout_marginBottom="@dimen/d2"
             android:stretchColumns="*"
             android:layout_below="@+id/logoTxt"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingRight="10dp"
-            android:paddingLeft="10dp">
+            android:paddingRight="@dimen/d2"
+            android:paddingLeft="@dimen/d2">
             <TableRow>
                 <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
                     android:onClick="showLivros"
                     android:layout_width="0dp"
-                    android:layout_marginRight="5dp"
+                    android:layout_marginRight="@dimen/d1"
                     android:background="@color/thirdGray">
                     <TextView
                         android:padding="5dp"
@@ -64,8 +64,8 @@
                 <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
                     android:onClick="showCategorias"
                     android:layout_width="0dp"
-                    android:layout_marginRight="5dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="@dimen/d1"
+                    android:layout_marginLeft="@dimen/d1"
                     android:background="@color/thirdGray">
                     <TextView
                         android:padding="5dp"
@@ -86,7 +86,7 @@
                 <com.example.elias.acervoapp.uiimplementacoes.FrameSquareLayout
                     android:onClick="showAvisos"
                     android:layout_width="0dp"
-                    android:layout_marginLeft="5dp"
+                    android:layout_marginLeft="@dimen/d1"
                     android:background="@color/thirdGray">
                     <TextView
                         android:padding="5dp"
@@ -107,6 +107,7 @@
             </TableRow>
         </TableLayout>
         <RelativeLayout
+            android:id="@+id/graficoCont"
             android:layout_below="@+id/options"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
@@ -116,8 +117,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingBottom="20dp"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
+                android:layout_marginLeft="@dimen/d2"
+                android:layout_marginRight="@dimen/d2"
                 android:background="@color/firstGray">
                 <com.example.elias.acervoapp.uiimplementacoes.GraficoPizza
                     android:layout_width="@dimen/inicio_grafico_square"
@@ -150,18 +151,18 @@
                 android:layout_below="@+id/grafico"
                 android:layout_width="match_parent"
                 android:weightSum="2"
-                android:layout_marginRight="10dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginRight="@dimen/d2"
+                android:layout_marginLeft="@dimen/d2"
                 android:layout_height="wrap_content">
                 <RelativeLayout
                     android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_marginRight="2dp"
+                    android:layout_marginRight="@dimen/d1"
                     android:background="@color/thirdGray"
                     android:layout_height="wrap_content">
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="4dp"
+                        android:layout_height="@dimen/b1"
                         android:id="@+id/colorOpt"
                         android:background="@color/firstGreen">
                     </FrameLayout>
@@ -187,12 +188,12 @@
                 <RelativeLayout
                     android:layout_weight="1"
                     android:layout_width="0dp"
-                    android:layout_marginLeft="2dp"
+                    android:layout_marginLeft="@dimen/d1"
                     android:background="@color/thirdGray"
                     android:layout_height="wrap_content">
                     <FrameLayout
                         android:layout_width="match_parent"
-                        android:layout_height="4dp"
+                        android:layout_height="@dimen/b1"
                         android:id="@+id/colorOpt2"
                         android:background="@color/firstRed">
                     </FrameLayout>
@@ -215,8 +216,21 @@
                         android:textSize="@dimen/H2"/>
                 </RelativeLayout>
             </LinearLayout>
-        </RelativeLayout>
 
+        </RelativeLayout>
+        <Button
+            android:onClick="deslogarUsuario"
+            android:text="DESLOGAR"
+            android:textStyle="bold"
+            android:textColor="@color/thirdGray"
+            android:textSize="@dimen/H4"
+            android:layout_marginTop="@dimen/d2"
+            android:background="@drawable/iniciobutton"
+            android:layout_marginLeft="@dimen/d2"
+            android:layout_marginRight="@dimen/d2"
+            android:layout_below="@+id/graficoCont"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </RelativeLayout>
 
 </ScrollView>

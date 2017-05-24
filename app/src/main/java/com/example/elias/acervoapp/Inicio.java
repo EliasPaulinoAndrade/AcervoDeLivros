@@ -1,6 +1,7 @@
 package com.example.elias.acervoapp;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,6 +21,15 @@ public class Inicio extends AppCompatActivity {
     }
     public void showCategorias(View v){
         Intent it = new Intent(this, Categorias.class);
+        this.startActivity(it);
+    }
+    public void deslogarUsuario(View v){
+        SharedPreferences shr = PreferenceManager.getDefaultSharedPreferences(this);
+        SharedPreferences.Editor edt = shr.edit();
+        edt.remove("email");
+        edt.remove("id");
+        edt.commit();
+        Intent it = new Intent(this, Login.class);
         this.startActivity(it);
     }
     public void showAvisos(View v){

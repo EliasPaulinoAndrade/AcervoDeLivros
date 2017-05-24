@@ -30,7 +30,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:layout_alignParentBottom="true"
-                android:text="40"
+                android:text="0"
                 android:textColor="@color/white"
                 android:textSize="@dimen/BigH1" />
 
@@ -42,15 +42,6 @@
         </RelativeLayout>
     </RelativeLayout>
 
-    <ListView
-        android:dividerHeight="5dp"
-        android:layout_below="@+id/pesquisaDiv"
-        android:paddingTop="20dp"
-        android:id="@+id/livros_listview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        tools:listitem="@layout/livro_item">
-    </ListView>
     <RelativeLayout
         android:id="@+id/pesquisaDiv"
         android:layout_width="match_parent"
@@ -133,6 +124,23 @@
         android:background="@color/thirdGray"
         android:layout_below="@id/pesquisaDiv"
         android:layout_height="3dp"
-        android:layout_width="match_parent">
+        android:layout_width="match_parent"
+        android:id="@+id/view">
     </View>
+    <ProgressBar
+        android:id="@+id/progresso"
+        android:layout_below="@id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:dividerHeight="5dp"
+        android:paddingTop="20dp"
+        android:id="@+id/livros_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/livro_item"
+        android:layout_below="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+    </ListView>
 </RelativeLayout>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +9,10 @@
     android:paddingLeft="20dp"
     android:paddingRight="20dp"
     tools:context="com.example.elias.acervoapp.Login">
-
+    <RelativeLayout
+        android:id="@+id/loginrelative"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -67,6 +70,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/botaoLogin"
         android:textStyle="bold"
         android:textSize="@dimen/inputDefault"
         android:layout_marginTop="50dp"
@@ -77,4 +81,17 @@
         android:text="@string/login_button"
         android:onClick="logarUsuario"
         android:textColor="@color/secGray"/>
-</RelativeLayout>
+    <Button
+        android:onClick="irParaRegistro"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="@string/login_criar_conta"
+        android:textSize="@dimen/inputDefault"
+        android:textColor="@color/secBlue"
+        android:textAllCaps="true"
+        android:background="@drawable/registroinloginbutton"
+        android:layout_below="@id/botaoLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    </RelativeLayout>
+</ScrollView>

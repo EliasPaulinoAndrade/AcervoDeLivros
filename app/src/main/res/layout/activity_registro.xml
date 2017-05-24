@@ -82,6 +82,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
     <Button
+        android:id="@+id/botaoRegistro"
         android:textStyle="bold"
         android:textSize="@dimen/inputDefault"
         android:layout_marginTop="50dp"
@@ -92,4 +93,16 @@
         android:text="@string/registro_button"
         android:textColor="@color/secGray"
         android:onClick="registrarUsuario"/>
+    <Button
+        android:onClick="irParaLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginTop="10dp"
+        android:text="@string/registro_fazer_login"
+        android:textSize="@dimen/inputDefault"
+        android:textColor="@color/secBlue"
+        android:textAllCaps="true"
+        android:background="@drawable/registroinloginbutton"
+        android:layout_below="@id/botaoRegistro"/>
 </RelativeLayout>

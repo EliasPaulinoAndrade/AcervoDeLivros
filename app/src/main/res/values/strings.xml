@@ -24,6 +24,8 @@
     <string name="detalhe_status_button">Trocar</string>
     <string name="registro_input_nome">Nome..</string>
     <string name="registro_button">Registrar</string>
+    <string name="login_criar_conta">Criar Conta</string>
+    <string name="registro_fazer_login">Fazer Login</string>
 
     <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
