@@ -14,15 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Acervo"
-        android:textSize="@dimen/BigH2"
-        android:textStyle="bold"
-        android:textColor="@color/fivGray"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="58dp" />
-    <TextView
         android:id="@+id/titleLogin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

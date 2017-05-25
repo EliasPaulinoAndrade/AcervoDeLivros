@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="2">
+        <TextView
+            android:id="@+id/emprestimoData"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="12/09"
+            android:textColor="@color/secWhite"
+            android:textSize="@dimen/detalhe_default_item">
+        </TextView>
+        <TextView
+            android:id="@+id/emprestimoNome"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Pego De João"
+            android:textSize="@dimen/detalhe_default_item"
+            android:textColor="@color/secWhite"
+            android:drawableLeft="@drawable/pego"
+            android:drawablePadding="10dp"
+            />
+    </LinearLayout>
+</RelativeLayout>
+

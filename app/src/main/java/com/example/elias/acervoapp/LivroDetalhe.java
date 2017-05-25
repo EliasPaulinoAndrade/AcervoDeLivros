@@ -9,11 +9,13 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.example.elias.acervoapp.fragmentos.DefaultLivroFragment;
@@ -34,6 +36,30 @@ public class LivroDetalhe extends AppCompatActivity {
         titulo.setText(getIntent().getStringExtra("titulo"));
         descricao.setText(getIntent().getStringExtra("descricao"));
 
+        final ScrollView scl = (ScrollView) findViewById(R.id.activity_livro_detalhe);
+        scl.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
+            RelativeLayout detail = (RelativeLayout)findViewById(R.id.livroDetail);
+            float oldY = 0;
+            boolean sizechange = false;
+            @Override
+            public void onScrollChanged() {
+                if(sizechange){
+                    sizechange = false;
+                    return ;
+                }
+                if(scl.getScrollY()>oldY){
+                    setActionBarTitulo(detail);
+                    hideDetail(detail);
+                    sizechange = true;
+                }
+                else{
+                    unsetActionBarTitulo();
+                    showDetail(detail);
+                    sizechange = true;
+                }
+                oldY = scl.getScrollY();
+            }
+        });
         this.mostrandoFragment = 0;//0 default, 1 edit, 2 remove, 3 status
     }
     private void setButton(View v, int colorBack, int imageIcon, int textColor){
@@ -153,7 +179,11 @@ public class LivroDetalhe extends AppCompatActivity {
             showDetail(detail);
             unsetActionBarTitulo();
         }
-        trocarFragment(new DefaultLivroFragment());
+        DefaultLivroFragment df = new DefaultLivroFragment();
+        Bundle bd = new Bundle();
+        bd.putString("id", "1");
+        df.setArguments(bd);
+        trocarFragment(df);
         this.mostrandoFragment=0;
     }
 }

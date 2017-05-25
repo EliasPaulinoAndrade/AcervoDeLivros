@@ -9,13 +9,16 @@ import java.util.Date;
 public class Emprestimo {
     private Date dataEmprestimo;
     private Date dataDevolucao;
-    private Usuario usuario;
+    private Usuario recebedor;
     private LivroFisico livroEmprestado;
 
-    public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario usuario, LivroFisico livroEmprestado) {
+    public Emprestimo(){
+
+    }
+    public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario recebedor, LivroFisico livroEmprestado) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
-        this.usuario = usuario;
+        this.recebedor = recebedor;
         this.livroEmprestado = livroEmprestado;
     }
 
@@ -35,12 +38,12 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
     }
 
-    public Usuario getUsuario() {
-        return usuario;
+    public Usuario getRecebedor() {
+        return recebedor;
     }
 
-    public void setUsuario(Usuario usuario) {
-        this.usuario = usuario;
+    public void setRecebedor(Usuario recebedor) {
+        this.recebedor = recebedor;
     }
 
     public LivroFisico getLivroEmprestado() {
@@ -56,7 +59,7 @@ public class Emprestimo {
         return "Emprestimo{" +
                 "dataEmprestimo=" + dataEmprestimo +
                 ", dataDevolucao=" + dataDevolucao +
-                ", usuario=" + usuario +
+                ", recebedor=" + recebedor +
                 ", livroEmprestado=" + livroEmprestado +
                 '}';
     }

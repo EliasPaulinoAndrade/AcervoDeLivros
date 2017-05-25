@@ -17,6 +17,7 @@ import com.example.elias.acervoapp.server.Server;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 
 public class Login extends AppCompatActivity implements ServerListener{
@@ -53,6 +54,8 @@ public class Login extends AppCompatActivity implements ServerListener{
     @Override
     public void retorno(String resultado)  {
         ObjectMapper obj = new ObjectMapper();
+        SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        obj.setDateFormat(sp);
         Usuario usuario = null;
         Intent inte = new Intent(this, Inicio.class);
         if(resultado.equals("null")){
