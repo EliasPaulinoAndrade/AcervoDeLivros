@@ -17,8 +17,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.HashMap;
 import java.util.List;
@@ -30,7 +32,7 @@ public class DefaultLivroFragment extends Fragment implements ServerListener{
         Server sv = new Server();
         sv.setListener(this);
         HashMap<String, String> hsm = new HashMap<String, String>();
-        hsm.put("id", "1");
+        hsm.put("id", Integer.toString(getActivity().getIntent().getIntExtra("idFisico", 223)));
         sv.sendServer("emprestimo", "getEmprestimosFromLivro", hsm);
     }
 
@@ -38,23 +40,36 @@ public class DefaultLivroFragment extends Fragment implements ServerListener{
     public void retorno(String resultado) throws IOException {
         Log.d("EMPRESTIMOS", "retorno: " + resultado);
         LinearLayout ln = (LinearLayout) getActivity().findViewById(R.id.listaEmprestimos);
+        ln.removeAllViews();
+
+        if(resultado.equals("null"))
+            return ;
         ObjectMapper ob = new ObjectMapper();
         SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         ob.setDateFormat(sp);
         List<Emprestimo> emprestimos = Arrays.asList(ob.readValue(resultado, Emprestimo[].class));
+        Collections.reverse(emprestimos);
         View rl ;
         TextView tx;
-        Calendar cl = new GregorianCalendar();
+        sp = new SimpleDateFormat("dd/MM/yy");
         for(Emprestimo emp : emprestimos){
-            cl.setTime(emp.getDataDevolucao());
+            if(emp.getDataDevolucao()!=null){
+                rl = getActivity().getLayoutInflater().inflate(R.layout.emprestimos_item, null);
+                tx = (TextView) rl.findViewById(R.id.emprestimoNome);
+                tx.setText("Pego de " + emp.getRecebedor().getNome());
+                tx.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.emprestado), null, null, null);
+                tx = (TextView) rl.findViewById(R.id.emprestimoData);
+                tx.setText(sp.format(emp.getDataDevolucao()));
+                ln.addView(rl);
+            }
             rl = getActivity().getLayoutInflater().inflate(R.layout.emprestimos_item, null);
             tx = (TextView) rl.findViewById(R.id.emprestimoNome);
-            tx.setText(emp.getRecebedor().getNome());
+            tx.setText("Emprestado a " + emp.getRecebedor().getNome());
+            tx.setCompoundDrawablesWithIntrinsicBounds(getResources().getDrawable(R.drawable.pego), null, null, null);
             tx = (TextView) rl.findViewById(R.id.emprestimoData);
-            tx.setText(cl.get(Calendar.DAY_OF_MONTH) + "/" +(cl.get(Calendar.MONTH) + 1));
+            tx.setText(sp.format(emp.getDataEmprestimo()));
             ln.addView(rl);
 
-            cl.get(Calendar.DAY_OF_MONTH);
         }
     }
 

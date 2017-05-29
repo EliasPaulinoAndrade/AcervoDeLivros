@@ -24,10 +24,10 @@
             android:layout_height="100dp"
             android:layout_centerHorizontal="true">
             <TextView
-                android:id="@+id/numLivros"
+                android:id="@+id/numCategorias"
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
-                android:text="40"
+                android:text="0"
                 android:textSize="@dimen/BigH1"
                 android:layout_alignParentBottom="true"
                 android:textColor="@color/white"/>
@@ -35,7 +35,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="100dp"
                 android:src="@drawable/categoriasicon"
-                android:layout_toRightOf="@+id/numLivros"/>
+                android:layout_toRightOf="@+id/numCategorias"/>
         </RelativeLayout>
     </RelativeLayout>
 

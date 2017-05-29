@@ -63,6 +63,8 @@ public class Server {
                     urlConn.setDoOutput(true);
                     urlConn.setRequestMethod("POST");
                     wr = new DataOutputStream(urlConn.getOutputStream());
+
+                    Log.d("MANDAR", "doInBackground: mandou");
                     for(String key : itens.keySet()){
                         wr.writeBytes(key+"="+itens.get(key)+"&");
                     }

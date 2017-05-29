@@ -36,6 +36,7 @@ public class LivroDetalhe extends AppCompatActivity {
         titulo.setText(getIntent().getStringExtra("titulo"));
         descricao.setText(getIntent().getStringExtra("descricao"));
 
+
         final ScrollView scl = (ScrollView) findViewById(R.id.activity_livro_detalhe);
         scl.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
             RelativeLayout detail = (RelativeLayout)findViewById(R.id.livroDetail);
@@ -180,9 +181,6 @@ public class LivroDetalhe extends AppCompatActivity {
             unsetActionBarTitulo();
         }
         DefaultLivroFragment df = new DefaultLivroFragment();
-        Bundle bd = new Bundle();
-        bd.putString("id", "1");
-        df.setArguments(bd);
         trocarFragment(df);
         this.mostrandoFragment=0;
     }

@@ -60,6 +60,13 @@ public class Livros extends AppCompatActivity implements ServerListener{
         ObjectMapper map = new ObjectMapper();
         SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         map.setDateFormat(sp);
+
+        ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
+        prog.setVisibility(View.INVISIBLE);
+
+        if(resultado.equals("null"))
+            return ;
+
         LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
         Log.d("DEU", "retorno: "+map.readValue(resultado, LivroFisico[].class)[0]);
         List<LivroFisico> livros = Arrays.asList(livrosAr);
@@ -68,15 +75,13 @@ public class Livros extends AppCompatActivity implements ServerListener{
         txt.setText(Integer.toString(livros.size()));
         Log.d("RETORNO", "size: "+livros.size());
 
-        ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
-        prog.setVisibility(View.INVISIBLE);
-
         adapter = new LivroAdapter(livros, getApplicationContext());
         listView = (ListView) findViewById(R.id.livros_listview);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 LivroFisico livro = (LivroFisico) adapter.getItem(position);
+                it.putExtra("idFisico", livro.getId());
                 it.putExtra("id", livro.getLivro().getId());
                 it.putExtra("titulo", livro.getLivro().getTitulo());
                 it.putExtra("descricaoFisica", livro.getDescricao());

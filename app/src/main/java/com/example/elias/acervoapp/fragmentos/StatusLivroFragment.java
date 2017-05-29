@@ -9,13 +9,28 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.elias.acervoapp.R;
+import com.example.elias.acervoapp.interfaces.ServerListener;
+import com.example.elias.acervoapp.server.Server;
 
-public class StatusLivroFragment extends Fragment {
+import java.io.IOException;
+import java.util.HashMap;
+
+public class StatusLivroFragment extends Fragment implements ServerListener{
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Server sv = new Server();
+        sv.setListener(this);
+        HashMap<String, String> hsm = new HashMap<String, String>();
+        hsm.put("id", Integer.toString(getActivity().getIntent().getIntExtra("idFisico", 223)));
+        sv.sendServer("emprestimo", "getAtualStatusFromLivro", hsm);
+    }
+
+    @Override
+    public void retorno(String resultado) throws IOException {
 
     }
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
