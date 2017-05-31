@@ -30,6 +30,7 @@
     <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
     <string-array name="livrosCategorias">
+        <item>Todos</item>
         <item>Terror</item>
         <item>Fantasia</item>
         <item>Romance</item>

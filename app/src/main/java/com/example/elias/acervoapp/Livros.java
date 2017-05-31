@@ -1,5 +1,6 @@
 package com.example.elias.acervoapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Parcelable;
@@ -31,7 +32,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class Livros extends AppCompatActivity implements ServerListener{
+public class Livros extends AppCompatActivity implements ServerListener, AdapterView.OnItemSelectedListener{
 
     ListView listView;
     LivroAdapter adapter;
@@ -44,6 +45,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
         Spinner spin = (Spinner)findViewById(R.id.spinner);
         adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adp);
+        spin.setOnItemSelectedListener(this);
 
         Server sv = new Server();
         HashMap<String, String> hs = new HashMap<>();
@@ -55,7 +57,29 @@ public class Livros extends AppCompatActivity implements ServerListener{
     }
 
     @Override
+    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> parent) {
+
+    }
+
+    public void pesquisar(View v){
+        TextView tx = (TextView) findViewById(R.id.buscaEdit);
+
+        Log.d("PESQUISA", "pesquisar: "+tx.getText().toString() + PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0) );
+        Server sv = new Server();
+        sv.setListener(this);
+        HashMap<String, String> hm = new HashMap<>();
+        hm.put("nome", tx.getText().toString());
+        hm.put("userId", ""+PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0));
+        sv.sendServer("livro", "getLivrosByName", hm);
+    }
+    @Override
     public void retorno(String resultado) throws IOException {
+        Log.d("retorno", "retorno: "+resultado);
         final Intent it = new Intent(this, LivroDetalhe.class);
         ObjectMapper map = new ObjectMapper();
         SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -68,12 +92,10 @@ public class Livros extends AppCompatActivity implements ServerListener{
             return ;
 
         LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
-        Log.d("DEU", "retorno: "+map.readValue(resultado, LivroFisico[].class)[0]);
         List<LivroFisico> livros = Arrays.asList(livrosAr);
 
         TextView txt= (TextView)findViewById(R.id.numLivros);
         txt.setText(Integer.toString(livros.size()));
-        Log.d("RETORNO", "size: "+livros.size());
 
         adapter = new LivroAdapter(livros, getApplicationContext());
         listView = (ListView) findViewById(R.id.livros_listview);

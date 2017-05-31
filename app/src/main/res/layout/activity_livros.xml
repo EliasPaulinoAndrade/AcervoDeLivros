@@ -64,6 +64,7 @@
             android:textSize="@dimen/livros_categorias_busca_resultado" />
 
         <Button
+            android:onClick="pesquisar"
             android:id="@+id/buscaButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -105,6 +106,7 @@
             android:background="@drawable/spinner_fundo"
             android:entries="@array/livrosCategorias"
             android:paddingRight="30dp"
+
             android:prompt="@string/padraoCategoria"></Spinner>
         <TextView
             android:textSize="@dimen/H3"
