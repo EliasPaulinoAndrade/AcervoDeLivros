@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/AcervoApp.iml" filepath="$PROJECT_DIR$/AcervoApp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/acervo.iml" filepath="$PROJECT_DIR$/acervo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Acervo_Elias_Cibele.iml" filepath="$PROJECT_DIR$/Acervo_Elias_Cibele.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/mysql-connector-java-5.1.42-bin/mysql-connector-java-5.1.42-bin.iml" filepath="$PROJECT_DIR$/mysql-connector-java-5.1.42-bin/mysql-connector-java-5.1.42-bin.iml" />
     </modules>

@@ -27,6 +27,27 @@
     <string name="login_criar_conta">Criar Conta</string>
     <string name="registro_fazer_login">Fazer Login</string>
 
+    <string name="cadastro_livro_title">Cadastro de Livro</string>
+    <string name="hint_nome">Título...</string>
+    <string name="hint_descricao">Descrição...</string>
+    <string name="salvar">Salvar</string>
+    <string name="volume">0</string>
+    <string name="volumeText">Volume</string>
+    <string name="hint_editora">Editora</string>
+    <string name="hint_ano">Ano</string>
+    <string name="hint_autor">Autor</string>
+    <string name="hint_pg">Pags</string>
+    <string name="hint_edicao">Edição</string>
+    <string name="titleConser">Conservação</string>
+    <string-array name="Conservacao">
+        <item>Conservação</item>
+        <item>Ótimo</item>
+        <item>Bom</item>
+        <item>Regular</item>
+        <item>Ruim</item>
+        <item>Péssimo</item>
+    </string-array>
+
     <string name="app_name">Acervo</string>
     <string name="padraoCategoria">Categoria</string>
     <string-array name="livrosCategorias">
