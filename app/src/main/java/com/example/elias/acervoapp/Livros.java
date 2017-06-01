@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.example.elias.acervoapp.adapters.LivroAdapter;
 import com.example.elias.acervoapp.interfaces.ServerListener;
+import com.example.elias.acervoapp.models.Categoria;
 import com.example.elias.acervoapp.models.Livro;
 import com.example.elias.acervoapp.models.LivroFisico;
 import com.example.elias.acervoapp.server.Server;
@@ -32,20 +33,20 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class Livros extends AppCompatActivity implements ServerListener, AdapterView.OnItemSelectedListener{
+public class Livros extends AppCompatActivity implements ServerListener{
 
     ListView listView;
     LivroAdapter adapter;
+    Integer categoriaSelecionado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_livros);
 
-        ArrayAdapter adp =  ArrayAdapter.createFromResource(this, R.array.livrosCategorias, R.layout.spinner_lay);
+        String[] dados = {"Todos"};
+        ArrayAdapter<String> adp = new ArrayAdapter<String>(this, R.layout.spinner_lay, dados);
         Spinner spin = (Spinner)findViewById(R.id.spinner);
-        adp.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin.setAdapter(adp);
-        spin.setOnItemSelectedListener(this);
 
         Server sv = new Server();
         HashMap<String, String> hs = new HashMap<>();
@@ -53,65 +54,128 @@ public class Livros extends AppCompatActivity implements ServerListener, Adapter
         id = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0);
         hs.put("id", Integer.toString(id));
         sv.setListener(this);
-        sv.sendServer("livro", "getLivrosFromUsuario", hs);
+        sv.sendServer("livro", "getLivrosFromUsuario", hs, 1);
+
+        HashMap<String, String> hs2 = new HashMap<>();
+        hs2.put("userId", Integer.toString(id));
+        sv.sendServer("categoria", "getCategoriasByUsuario", hs2, 2);
+        categoriaSelecionado = -1;
     }
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-
-    }
-
-    public void pesquisar(View v){
+    public void sendByNameAndCategoria(Integer categoriaId){
         TextView tx = (TextView) findViewById(R.id.buscaEdit);
-
-        Log.d("PESQUISA", "pesquisar: "+tx.getText().toString() + PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0) );
+        Server sv = new Server();
+        sv.setListener(Livros.this);
+        HashMap<String, String> hm = new HashMap<String, String>();
+        hm.put("nome", tx.getText().toString());
+        hm.put("userId", Integer.toString(PreferenceManager.getDefaultSharedPreferences(Livros.this).getInt("id", 0)));
+        hm.put("categoriaId", Integer.toString(categoriaId));
+        sv.sendServer("livro", "getLivrosByNameAndCategoria", hm, 1);
+    }
+    public void sendByName(){
+        TextView tx = (TextView) findViewById(R.id.buscaEdit);
         Server sv = new Server();
         sv.setListener(this);
         HashMap<String, String> hm = new HashMap<>();
         hm.put("nome", tx.getText().toString());
         hm.put("userId", ""+PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0));
-        sv.sendServer("livro", "getLivrosByName", hm);
+        sv.sendServer("livro", "getLivrosByName", hm, 1);
+    }
+    public void pesquisar(View v){
+        Spinner sp = (Spinner)findViewById(R.id.spinner);
+        String spinText = (String) sp.getSelectedItem();
+        Log.d("PESQUISA2", "pesquisar: "+spinText);
+        if(spinText.equals("Todos")){
+            sendByName();
+        }
+        else{
+            sendByNameAndCategoria(categoriaSelecionado);
+        }
+    }
+    public void novoLivro(View v){
+        Intent it = new Intent(this, CadastroLivro.class);
+        this.startActivity(it);
     }
     @Override
-    public void retorno(String resultado) throws IOException {
-        Log.d("retorno", "retorno: "+resultado);
-        final Intent it = new Intent(this, LivroDetalhe.class);
-        ObjectMapper map = new ObjectMapper();
-        SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        map.setDateFormat(sp);
+    public void retorno(String resultado, Integer postId) throws IOException {
+        TextView txtResult = (TextView)findViewById(R.id.resultadoPesquisa);
+        switch (postId){
+            case 1:
+                Log.d("retorno", "retorno: "+resultado);
+                final Intent it = new Intent(this, LivroDetalhe.class);
+                ObjectMapper map = new ObjectMapper();
+                SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+                map.setDateFormat(sp);
 
-        ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
-        prog.setVisibility(View.INVISIBLE);
+                ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
+                prog.setVisibility(View.INVISIBLE);
 
-        if(resultado.equals("null"))
-            return ;
+                listView = (ListView) findViewById(R.id.livros_listview);
+                if(resultado.equals("null")){
+                    ((LivroAdapter) listView.getAdapter()).deleteAll();
+                    ((LivroAdapter) listView.getAdapter()).notifyDataSetChanged();
+                    return ;
+                }
+                LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
+                List<LivroFisico> livros = Arrays.asList(livrosAr);
 
-        LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
-        List<LivroFisico> livros = Arrays.asList(livrosAr);
+                TextView campoBusca = (TextView) findViewById(R.id.buscaEdit);
 
-        TextView txt= (TextView)findViewById(R.id.numLivros);
-        txt.setText(Integer.toString(livros.size()));
+                TextView txt= (TextView)findViewById(R.id.numLivros);
+                txt.setText(Integer.toString(livros.size()));
 
-        adapter = new LivroAdapter(livros, getApplicationContext());
-        listView = (ListView) findViewById(R.id.livros_listview);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                LivroFisico livro = (LivroFisico) adapter.getItem(position);
-                it.putExtra("idFisico", livro.getId());
-                it.putExtra("id", livro.getLivro().getId());
-                it.putExtra("titulo", livro.getLivro().getTitulo());
-                it.putExtra("descricaoFisica", livro.getDescricao());
-                it.putExtra("descricao", livro.getLivro().getDescricao());
+                txtResult.setText(Integer.toString(livros.size()) + " RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
 
-                startActivity(it);
-            }
-        });
-        listView.setAdapter(adapter);
+                adapter = new LivroAdapter(livros, getApplicationContext());
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                        LivroFisico livro = (LivroFisico) adapter.getItem(position);
+                        it.putExtra("idFisico", livro.getId());
+                        it.putExtra("id", livro.getLivro().getId());
+                        it.putExtra("titulo", livro.getLivro().getTitulo());
+                        it.putExtra("descricaoFisica", livro.getDescricao());
+                        it.putExtra("descricao", livro.getLivro().getDescricao());
+
+                        startActivity(it);
+                    }
+                });
+                listView.setAdapter(adapter);
+                break;
+            case 2:
+                ObjectMapper obj = new ObjectMapper();
+                Categoria[] categoriasAr = obj.readValue(resultado, Categoria[].class);
+                final List<Categoria> catList = Arrays.asList(categoriasAr);
+
+                ArrayList<String> strList = new ArrayList<>();
+                strList.add("Todos");
+                for(Categoria cat : catList){
+                    strList.add(cat.getNome());
+                }
+                String dados[] = new String[strList.size()];
+                dados = strList.toArray(dados);
+                ArrayAdapter<String> adp = new ArrayAdapter<String>(this, R.layout.spinner_lay, dados);
+                Spinner spin = (Spinner)findViewById(R.id.spinner);
+                spin.setAdapter(adp);
+                spin.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        TextView txt = (TextView) view;
+                        if(txt.getText().toString().equals("Todos")){
+                            categoriaSelecionado = -1;
+                            sendByName();
+                        }
+                        else{
+                            categoriaSelecionado = catList.get(position - 1).getId();
+                            sendByNameAndCategoria(catList.get(position - 1).getId());
+                        }
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) {
+
+                    }
+                });
+                break;
+        }
+
     }
 }

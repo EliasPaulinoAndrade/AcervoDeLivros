@@ -104,11 +104,9 @@
             android:layout_alignParentBottom="true"
             android:layout_marginTop="10dp"
             android:background="@drawable/spinner_fundo"
-            android:entries="@array/livrosCategorias"
-            android:paddingRight="30dp"
-
-            android:prompt="@string/padraoCategoria"></Spinner>
+            android:paddingRight="30dp"></Spinner>
         <TextView
+            android:onClick="novoLivro"
             android:textSize="@dimen/H3"
             android:drawablePadding="5dp"
             android:drawableLeft="@drawable/novolivro"

@@ -23,11 +23,11 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         sv.setListener(this);
         HashMap<String, String> hsm = new HashMap<String, String>();
         hsm.put("id", Integer.toString(getActivity().getIntent().getIntExtra("idFisico", 223)));
-        sv.sendServer("emprestimo", "getAtualStatusFromLivro", hsm);
+        sv.sendServer("emprestimo", "getAtualStatusFromLivro", hsm, 0);
     }
 
     @Override
-    public void retorno(String resultado) throws IOException {
+    public void retorno(String resultado, Integer postId) throws IOException {
 
     }
 

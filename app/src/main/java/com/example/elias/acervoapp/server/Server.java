@@ -43,7 +43,7 @@ public class Server {
         this.listener = listener;
     }
 
-    public void sendServer(final String controller, final String action, final HashMap<String, String> itens){
+    public void sendServer(final String controller, final String action, final HashMap<String, String> itens, final Integer postId){
         final String localServer = this.localServer;
         final StringBuilder retorno = new StringBuilder();
         retorno.append("");
@@ -87,14 +87,14 @@ public class Server {
                 if(listener==null)
                     return ;
                 try {
-                    listener.retorno(retorno.toString());
+                    listener.retorno(retorno.toString(), postId);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
         }.execute();
     }
-    public void sendServer(final String controller, final String action, final Object dado, final String nome){
+    public void sendServer(final String controller, final String action, final Object dado, final String nome, final Integer postId){
         final String localServer = this.localServer;
         final StringBuilder retorno = new StringBuilder();
         final ServerListener listener = this.listener;
@@ -136,7 +136,7 @@ public class Server {
                 if(listener==null)
                     return ;
                 try {
-                    listener.retorno(retorno.toString());
+                    listener.retorno(retorno.toString(), postId);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

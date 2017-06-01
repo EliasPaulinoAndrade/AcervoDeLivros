@@ -45,6 +45,9 @@ public class LivroAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void deleteAll(){
+        livros = new ArrayList<>();
+    }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LivroFisico itemLivro = livros.get(i);
