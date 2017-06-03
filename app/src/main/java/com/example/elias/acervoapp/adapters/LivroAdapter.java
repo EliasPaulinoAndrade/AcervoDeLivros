@@ -56,7 +56,7 @@ public class LivroAdapter extends BaseAdapter {
         TextView title = (TextView) item.findViewById(R.id.titleItem);
         TextView subTitle = (TextView)item.findViewById(R.id.subTitleItem);
         title.setText(itemLivro.getLivro().getTitulo());
-        subTitle.setText(itemLivro.getDescricao());
+        subTitle.setText(itemLivro.getLivro().getDescricao());
         return item;
     }
 }

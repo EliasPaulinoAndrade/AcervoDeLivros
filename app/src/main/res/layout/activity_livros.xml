@@ -141,6 +141,7 @@
         tools:listitem="@layout/livro_item"
         android:layout_below="@+id/view"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true">
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/d1">
     </ListView>
 </RelativeLayout>
