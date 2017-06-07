@@ -59,7 +59,7 @@
             android:id="@+id/resultadoPesquisa"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="40 RESULTADOS PARA LIVRO TAL"
+            android:text="0 RESULTADOS PARA LIVRO TAL"
             android:textColor="@color/white"
             android:textSize="@dimen/livros_categorias_busca_resultado" />
 

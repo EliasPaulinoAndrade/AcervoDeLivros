@@ -48,15 +48,15 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
     @Override
     public void retorno(String resultado, Integer postId) throws IOException {
         ObjectMapper obj = new ObjectMapper();
-        List<Categoria> categorias = Arrays.asList(obj.readValue(resultado, Categoria[].class));
-
-        TextView txBig = (TextView) findViewById(R.id.numCategorias);
+        //List<Categoria> categorias = Arrays.asList(obj.readValue(resultado, Categoria[].class));
+        //Log.d("SIZE", "retorno: " + categorias.size());
+        List categorias = (ArrayList<Categoria>)Arrays.asList(obj.readValue(resultado, Categoria[].class));
+        Log.d("SIZE", "retorno: "+categorias.size());
+        /*TextView txBig = (TextView) findViewById(R.id.numCategorias);
         txBig.setText(categorias.size());
 
-        TextView edBusca = (EditText) findViewById(R.id.buscaEdit);
-
         TextView txResult = (TextView) findViewById(R.id.resultadoPesquisa);
-        txResult.setText(categorias.size() + " RESULTADOS PARA CATEGORIA \" "+ edBusca.getText().toString()+" \"");
-        gridview.setAdapter(new CategoriaAdapter(getApplicationContext(), categorias));
+        //txResult.setText(categorias.size() + " RESULTADOS PARA CATEGORIA \" "+ " "+" \"");
+        gridview.setAdapter(new CategoriaAdapter(getApplicationContext(), categorias));*/
     }
 }

@@ -38,6 +38,10 @@ public class Livros extends AppCompatActivity implements ServerListener{
     ListView listView;
     LivroAdapter adapter;
     Integer categoriaSelecionado;
+    TextView txtResult;
+    TextView campoBusca;
+    Spinner spinner;
+    TextView textResultBig;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,33 +60,36 @@ public class Livros extends AppCompatActivity implements ServerListener{
         sv.setListener(this);
         sv.sendServer("livro", "getLivrosFromUsuario", hs, 1);
 
+        listView = (ListView) findViewById(R.id.livros_listview);
+        txtResult = (TextView)findViewById(R.id.resultadoPesquisa);
+        campoBusca = (TextView) findViewById(R.id.buscaEdit);
+        spinner = (Spinner)findViewById(R.id.spinner);
+        textResultBig = (TextView)findViewById(R.id.numLivros);
+
         HashMap<String, String> hs2 = new HashMap<>();
         hs2.put("userId", Integer.toString(id));
         sv.sendServer("categoria", "getCategoriasByUsuario", hs2, 2);
         categoriaSelecionado = -1;
     }
     public void sendByNameAndCategoria(Integer categoriaId){
-        TextView tx = (TextView) findViewById(R.id.buscaEdit);
         Server sv = new Server();
         sv.setListener(Livros.this);
         HashMap<String, String> hm = new HashMap<String, String>();
-        hm.put("nome", tx.getText().toString());
+        hm.put("nome", campoBusca.getText().toString());
         hm.put("userId", Integer.toString(PreferenceManager.getDefaultSharedPreferences(Livros.this).getInt("id", 0)));
         hm.put("categoriaId", Integer.toString(categoriaId));
         sv.sendServer("livro", "getLivrosByNameAndCategoria", hm, 1);
     }
     public void sendByName(){
-        TextView tx = (TextView) findViewById(R.id.buscaEdit);
         Server sv = new Server();
         sv.setListener(this);
         HashMap<String, String> hm = new HashMap<>();
-        hm.put("nome", tx.getText().toString());
+        hm.put("nome", campoBusca.getText().toString());
         hm.put("userId", ""+PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0));
         sv.sendServer("livro", "getLivrosByName", hm, 1);
     }
     public void pesquisar(View v){
-        Spinner sp = (Spinner)findViewById(R.id.spinner);
-        String spinText = (String) sp.getSelectedItem();
+        String spinText = (String) spinner.getSelectedItem();
         Log.d("PESQUISA2", "pesquisar: "+spinText);
         if(spinText.equals("Todos")){
             sendByName();
@@ -97,10 +104,8 @@ public class Livros extends AppCompatActivity implements ServerListener{
     }
     @Override
     public void retorno(String resultado, Integer postId) throws IOException {
-        TextView txtResult = (TextView)findViewById(R.id.resultadoPesquisa);
         switch (postId){
             case 1:
-                Log.d("retorno", "retorno: "+resultado);
                 final Intent it = new Intent(this, LivroDetalhe.class);
                 ObjectMapper map = new ObjectMapper();
                 SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -109,19 +114,16 @@ public class Livros extends AppCompatActivity implements ServerListener{
                 ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
                 prog.setVisibility(View.INVISIBLE);
 
-                listView = (ListView) findViewById(R.id.livros_listview);
                 if(resultado.equals("null")){
-                    ((LivroAdapter) listView.getAdapter()).deleteAll();
-                    ((LivroAdapter) listView.getAdapter()).notifyDataSetChanged();
+                    txtResult.setText("0 RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
+                    adapter = new LivroAdapter(new ArrayList<LivroFisico>(), getApplicationContext());
+                    listView.setAdapter(adapter);
                     return ;
                 }
                 LivroFisico[] livrosAr = map.readValue(resultado, LivroFisico[].class);
                 List<LivroFisico> livros = Arrays.asList(livrosAr);
 
-                TextView campoBusca = (TextView) findViewById(R.id.buscaEdit);
-
-                TextView txt= (TextView)findViewById(R.id.numLivros);
-                txt.setText(Integer.toString(livros.size()));
+                textResultBig.setText(Integer.toString(livros.size()));
 
                 txtResult.setText(Integer.toString(livros.size()) + " RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
 
@@ -143,6 +145,8 @@ public class Livros extends AppCompatActivity implements ServerListener{
                 break;
             case 2:
                 ObjectMapper obj = new ObjectMapper();
+                if(resultado.equals("null"))
+                    return;
                 Categoria[] categoriasAr = obj.readValue(resultado, Categoria[].class);
                 final List<Categoria> catList = Arrays.asList(categoriasAr);
 
