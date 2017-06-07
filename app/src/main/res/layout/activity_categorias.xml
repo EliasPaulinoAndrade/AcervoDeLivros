@@ -57,8 +57,9 @@
             android:layout_height="wrap_content"
             android:textColor="@color/white"
             android:textSize="@dimen/livros_categorias_busca_resultado"
-            android:text="40 RESULTADOS PARA CATEGORIA TAL"/>
+            android:text="0 RESULTADOS PARA CATEGORIA ' '"/>
         <Button
+            android:onClick="pesquisar"
             android:layout_below="@+id/resultadoPesquisa"
             android:id="@+id/buscaButton"
             android:layout_width="wrap_content"

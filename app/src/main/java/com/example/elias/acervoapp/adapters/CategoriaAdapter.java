@@ -49,6 +49,7 @@ public class CategoriaAdapter extends BaseAdapter {
         Categoria nome = categorias.get(i);
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         RelativeLayout item = (RelativeLayout) inflater.inflate(R.layout.categoria_item, viewGroup, false);
+        item.setTag(i);
         TextView texto = (TextView) item.findViewById(R.id.categoria_item_texto);
         texto.setText(nome.getNome());
         ImageView img = (ImageView) item.findViewById(R.id.categoria_item_img);
