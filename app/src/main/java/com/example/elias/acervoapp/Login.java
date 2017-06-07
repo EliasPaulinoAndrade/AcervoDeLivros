@@ -43,7 +43,7 @@ public class Login extends AppCompatActivity implements ServerListener{
         HashMap<String, String> dados = new HashMap<>();
         dados.put("email", email);
         dados.put("senha", senha);
-        sv.sendServer("usuario", "login", dados);
+        sv.sendServer("usuario", "login", dados, 0);
         Toast.makeText(this, "CARREGANDO...", Toast.LENGTH_SHORT).show();
 
     }
@@ -52,7 +52,7 @@ public class Login extends AppCompatActivity implements ServerListener{
         startActivity(inte);
     }
     @Override
-    public void retorno(String resultado)  {
+    public void retorno(String resultado, Integer postId)  {
         ObjectMapper obj = new ObjectMapper();
         SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         obj.setDateFormat(sp);

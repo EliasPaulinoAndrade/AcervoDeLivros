@@ -45,6 +45,9 @@ public class LivroAdapter extends BaseAdapter {
         return 0;
     }
 
+    public void deleteAll(){
+        livros = new ArrayList<>();
+    }
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
         LivroFisico itemLivro = livros.get(i);
@@ -53,7 +56,7 @@ public class LivroAdapter extends BaseAdapter {
         TextView title = (TextView) item.findViewById(R.id.titleItem);
         TextView subTitle = (TextView)item.findViewById(R.id.subTitleItem);
         title.setText(itemLivro.getLivro().getTitulo());
-        subTitle.setText(itemLivro.getDescricao());
+        subTitle.setText(itemLivro.getLivro().getDescricao());
         return item;
     }
 }

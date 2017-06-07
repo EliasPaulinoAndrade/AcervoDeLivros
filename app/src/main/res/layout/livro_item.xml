@@ -39,4 +39,15 @@
         android:text="Students who will be a part of Koç University should read the Pre-Arrival Guide carefully."
         android:textColor="@color/firstBlue"
         android:textSize="@dimen/livros_livro_subtitle" />
+    <TextView
+        android:id="@+id/livroTags"
+        android:layout_toRightOf="@id/imgItem"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/secBlue"
+        android:layout_below="@id/subTitleItem"
+        android:text="#Aventura #Fantasia #Terror #Rocamnce #Aventura #Aventura #Aventura "
+        android:maxLength="70"
+        android:maxLines="1"
+        android:ellipsize="end"/>
 </RelativeLayout>

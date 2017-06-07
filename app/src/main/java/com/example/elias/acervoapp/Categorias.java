@@ -1,10 +1,12 @@
 package com.example.elias.acervoapp;
 
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.GridView;
 import android.widget.TextView;
 
@@ -33,8 +35,9 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
 
         Server sv = new Server();
         sv.setListener(this);
-        sv.sendServer("categoria", "getCategorias", new HashMap<String, String>());
-
+        HashMap<String, String> hs = new HashMap<String, String >();
+        hs.put("userId", Integer.toString(PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0)));
+        sv.sendServer("categoria", "getCategoriasByUsuario", hs, 0);
     }
 
     @Override
@@ -43,10 +46,17 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
     }
 
     @Override
-    public void retorno(String resultado) throws IOException {
+    public void retorno(String resultado, Integer postId) throws IOException {
         ObjectMapper obj = new ObjectMapper();
         List<Categoria> categorias = Arrays.asList(obj.readValue(resultado, Categoria[].class));
 
+        TextView txBig = (TextView) findViewById(R.id.numCategorias);
+        txBig.setText(categorias.size());
+
+        TextView edBusca = (EditText) findViewById(R.id.buscaEdit);
+
+        TextView txResult = (TextView) findViewById(R.id.resultadoPesquisa);
+        txResult.setText(categorias.size() + " RESULTADOS PARA CATEGORIA \" "+ edBusca.getText().toString()+" \"");
         gridview.setAdapter(new CategoriaAdapter(getApplicationContext(), categorias));
     }
 }

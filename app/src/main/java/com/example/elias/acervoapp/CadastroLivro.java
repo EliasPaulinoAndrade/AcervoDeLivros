@@ -9,20 +9,38 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.SearchView;
 import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 
-public class CadastroLivro extends AppCompatActivity {
+import com.example.elias.acervoapp.interfaces.ServerListener;
+import com.example.elias.acervoapp.models.Livro;
+import com.example.elias.acervoapp.server.Server;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+
+public class CadastroLivro extends AppCompatActivity implements View.OnKeyListener, ServerListener {
 
     Spinner spin;                        //Conservação
     ArrayAdapter adp;                    //Array - Conservação
     ImageView imagemLivro;               //Imagem do livro
     TextView volume;                     //Volume
+    AutoCompleteTextView titulo;
+    String [] sugestoes;
+    ArrayAdapter adapterTitulo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +62,13 @@ public class CadastroLivro extends AppCompatActivity {
         //Volume - Texto
         volume = (TextView)findViewById(R.id.textoMeio);
         volume.setText("0");
+
+        titulo = (AutoCompleteTextView) findViewById(R.id.txtTitulo);
+        titulo.setOnKeyListener(this);
+
+        sugestoes = new String[0];
+        adapterTitulo = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, sugestoes);
+        titulo.setAdapter(adapterTitulo);
 
     }
     //Capturar a imagem do Livro
@@ -132,5 +157,41 @@ public class CadastroLivro extends AppCompatActivity {
         Log.d("editora", "Editora: "+editora);
         Log.d("volume", "Volume: "+volume);
         Log.d("conservacao", "Conservação: "+conservacao);
+    }
+
+    @Override
+    public boolean onKey(View v, int keyCode, KeyEvent event) {
+        Server sv = new Server();
+        sv.setListener(this);
+        HashMap<String, String> parametros = new HashMap<>();
+        parametros.put("nome", titulo.getText().toString());
+        sv.sendServer("livro", "getRealLivrosByName", parametros, 1);
+        return false;
+    }
+
+    @Override
+    public void retorno(String resultado, Integer postId) throws IOException {
+        ObjectMapper mp = new ObjectMapper();
+        SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        mp.setDateFormat(sp);
+        if(resultado.equals("null")){
+            return ;
+        }
+        Livro[] livrosArr = mp.readValue(resultado, Livro[].class);
+        List<Livro> list =  Arrays.asList(livrosArr);
+        ArrayList<String> sugestoes = new ArrayList<String>();
+        for(Livro livro : list){
+            sugestoes.add(livro.getTitulo());
+        }
+        try {
+            this.sugestoes = sugestoes.toArray(this.sugestoes);
+            this.adapterTitulo = new ArrayAdapter<String>(this, android.R.layout.simple_dropdown_item_1line, this.sugestoes);
+            this.adapterTitulo.notifyDataSetChanged();
+            this.titulo.setAdapter(this.adapterTitulo);
+        }catch (NullPointerException ex) {
+            Log.d("ERRO", "retorno: ");
+        }
+
+        Log.d("SUGESTOES", "retorno: "+sugestoes);
     }
 }

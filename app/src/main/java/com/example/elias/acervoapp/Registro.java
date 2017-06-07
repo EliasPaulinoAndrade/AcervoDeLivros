@@ -42,10 +42,10 @@ public class Registro extends AppCompatActivity implements ServerListener{
         dados.put("nome", nome);
         dados.put("senha", senha);
         dados.put("email", email);
-        sv.sendServer("usuario", "registro", dados);
+        sv.sendServer("usuario", "registro", dados, 0);
     }
     @Override
-    public void retorno(String retorno) {
+    public void retorno(String retorno, Integer postId) {
         Log.d("REORNO", "retorno: "+retorno);
         Intent inte = new Intent(this, Login.class);
         startActivity(inte);

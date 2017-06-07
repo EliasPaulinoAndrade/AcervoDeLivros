@@ -10,5 +10,4 @@
     android:layout_height="wrap_content"
     android:text="TEXTO"
     android:textSize="@dimen/H4"
-    android:textColor="@color/secBlue"
-/>
+    android:textColor="@color/secBlue" />
