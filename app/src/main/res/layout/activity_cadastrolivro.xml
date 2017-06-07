@@ -67,7 +67,9 @@
             android:paddingBottom="@dimen/d4"
             android:background="@color/firstGray"
             android:id="@+id/Cadastro">
-            <EditText
+            <AutoCompleteTextView
+                android:completionThreshold="1"
+                android:dropDownWidth="wrap_content"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/d3"
