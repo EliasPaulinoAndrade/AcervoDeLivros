@@ -8,6 +8,7 @@
         android:id="@+id/titleEdit"
         android:text="Emprestado Ao João"
         android:textAlignment="center"
+        android:gravity="center"
         android:textSize="@dimen/detelahe_status_title"
         android:maxLines="1"
         android:textColorHint="@color/secWhite"

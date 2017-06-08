@@ -39,6 +39,9 @@ public class GraficoPizza extends FrameLayout {
     @Override
     protected void onFinishInflate() {
         super.onFinishInflate();
+        setAngulos();
+    }
+    public void setAngulos(){
         float ang = 0;
         GraficoSecao secaoAux;
         for(int i=0; i< getChildCount(); i++){

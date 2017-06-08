@@ -121,27 +121,31 @@
                 android:layout_marginRight="@dimen/d2"
                 android:background="@color/firstGray">
                 <com.example.elias.acervoapp.uiimplementacoes.GraficoPizza
+                    android:id="@+id/pizza"
                     android:layout_width="@dimen/inicio_grafico_square"
                     app:centerColor="@color/firstGray"
                     app:raioInterno="@dimen/inicio_grafico_raio"
                     android:layout_gravity="center"
                     android:layout_height="@dimen/inicio_grafico_square">
                     <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
+                        android:id="@+id/livrosGuardados"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:secaoColor="@color/firstGreen"
-                        app:qntNumber="70"/>
+                        app:qntNumber="0"/>
                     <com.example.elias.acervoapp.uiimplementacoes.GraficoSecao
+                        android:id="@+id/livrosEmprestados"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         app:secaoColor="@color/firstRed"
-                        app:qntNumber="30"/>
+                        app:qntNumber="0"/>
 
                 </com.example.elias.acervoapp.uiimplementacoes.GraficoPizza>
                 <TextView
+                    android:id="@+id/qntLivros"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="60\nLivros"
+                    android:text="0\nLivros"
                     android:textSize="@dimen/inicio_grafico_text"
                     android:textColor="@color/secWhite"
                     android:layout_gravity="center"
@@ -176,6 +180,7 @@
                         android:textColor="@color/secWhite"
                         android:layout_centerHorizontal="true"/>
                     <TextView
+                        android:id="@+id/guardadosPer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="70%"
@@ -207,6 +212,7 @@
                         android:textColor="@color/secWhite"
                         android:layout_centerHorizontal="true"/>
                     <TextView
+                        android:id="@+id/emprestadosPer"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="30%"

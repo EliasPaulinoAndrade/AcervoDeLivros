@@ -1,5 +1,6 @@
 package com.example.elias.acervoapp;
 
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -22,11 +23,16 @@ import com.example.elias.acervoapp.fragmentos.DefaultLivroFragment;
 import com.example.elias.acervoapp.fragmentos.EditLivroFragment;
 import com.example.elias.acervoapp.fragmentos.RemoveLivroFragment;
 import com.example.elias.acervoapp.fragmentos.StatusLivroFragment;
+import com.example.elias.acervoapp.interfaces.ServerListener;
 import com.example.elias.acervoapp.models.LivroFisico;
+import com.example.elias.acervoapp.server.Server;
 
-public class LivroDetalhe extends AppCompatActivity {
-    int mostrandoFragment;
+import java.io.IOException;
+import java.util.HashMap;
 
+public class LivroDetalhe extends AppCompatActivity implements ServerListener {
+    private int mostrandoFragment;
+    Server serverManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,8 @@ public class LivroDetalhe extends AppCompatActivity {
         titulo.setText(getIntent().getStringExtra("titulo"));
         descricao.setText(getIntent().getStringExtra("descricao"));
 
+        serverManager = new Server();
+        serverManager.setListener(this);
 
         final ScrollView scl = (ScrollView) findViewById(R.id.activity_livro_detalhe);
         scl.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -183,5 +191,20 @@ public class LivroDetalhe extends AppCompatActivity {
         DefaultLivroFragment df = new DefaultLivroFragment();
         trocarFragment(df);
         this.mostrandoFragment=0;
+    }
+
+    public void removerLivro(View v){
+        Log.d("ID", "removerLivro: "+Integer.toString(getIntent().getIntExtra("idFisico", -1)));
+        HashMap<String, String> hs = new HashMap<>();
+        hs.put("livroId", Integer.toString(getIntent().getIntExtra("idFisico", -1)));
+        serverManager.sendServer("livro", "removeLivroById", hs, 1);
+
+        Intent it = new Intent(this, Livros.class);
+        startActivity(it);
+    }
+
+    @Override
+    public void retorno(String resultado, Integer postId) throws IOException {
+
     }
 }

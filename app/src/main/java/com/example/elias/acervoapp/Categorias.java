@@ -36,12 +36,15 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
     private TextView resultTxt;
     private EditText campoBusca;
     private final Integer TAG_CATEGORIA = 0;
+
+    private List<Categoria> categorias;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_categorias);
 
         gridview = (GridView) findViewById(R.id.gridview);
+        gridview.setOnItemClickListener(this);
 
         objMapper = new ObjectMapper();
         resultTxtBig = (TextView) findViewById(R.id.numCategorias);
@@ -61,7 +64,7 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
         TextView texto = (TextView) view.findViewById(R.id.categoria_item_texto);
 
         Intent it = new Intent(this, Livros.class);
-        it.putExtra("sharedCategoriaBusca", position);
+        it.putExtra("sharedCategoriaBusca", categorias.get(position).getId());
 
         startActivity(it);
     }
@@ -78,7 +81,7 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
             return ;
         }
         Categoria[] categoriasAr = objMapper.readValue(resultado, Categoria[].class);
-        List<Categoria> categorias = Arrays.asList(categoriasAr);
+        categorias = Arrays.asList(categoriasAr);
         resultTxtBig.setText(Integer.toString(categorias.size()));
         resultTxt.setText(categorias.size() + " RESULTADOS PARA CATEGORIA \" "+ campoBusca.getText() +" \"");
         gridview.setAdapter(new CategoriaAdapter(getApplicationContext(), categorias));

@@ -47,7 +47,10 @@ public class Livros extends AppCompatActivity implements ServerListener{
     private final Integer TAG_RETORNO_LIVROS = 1;
     private final Integer TAG_RETORNO_CATEGORIAS = 2;
     private Integer userId;
+    private final Integer CONST_CATEGORIA_TODOS = -1;
+    private final Integer CONST_CATEGORIA_SYSTEM_SELECT = -2;
 
+    private Integer extraCategoria;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,19 +66,21 @@ public class Livros extends AppCompatActivity implements ServerListener{
         userId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0);
         serverManager.setListener(this);
 
-        String[] dados = {"Todos"};
+        String[] dados = {"DEFAULT"};
         ArrayAdapter<String> adp = new ArrayAdapter<String>(this, R.layout.spinner_lay, dados);
         spinner.setAdapter(adp);
 
-        Integer extraCategoria = getIntent().getIntExtra("sharedCategoriaBusca", -1);
-        Log.d("TAG", "onCreate: "+extraCategoria);
-        if(extraCategoria==-1)
-            getLivrosByUserId();
-        else
-            getLivrosByUserIdAndCategoria(extraCategoria);
+        extraCategoria = getIntent().getIntExtra("sharedCategoriaBusca", -1);
 
         getCategoriasById();
-        categoriaSelecionado = -1;
+
+        if(extraCategoria==-1)
+            getLivrosByUserId();
+        else {
+            Log.d("TAG", "onCreate: "+extraCategoria);
+            getLivrosByUserIdAndCategoria(extraCategoria);
+        }
+        categoriaSelecionado = CONST_CATEGORIA_SYSTEM_SELECT;
     }
     public void getCategoriasById(){
         HashMap<String, String> hs2 = new HashMap<>();
@@ -108,7 +113,6 @@ public class Livros extends AppCompatActivity implements ServerListener{
     }
     public void pesquisar(View v){
         String spinText = (String) spinner.getSelectedItem();
-        Log.d("PESQUISA2", "pesquisar: "+spinText);
         if(spinText.equals("Todos")){
             getLivrosByUserIdAndNome();
         }
@@ -149,11 +153,13 @@ public class Livros extends AppCompatActivity implements ServerListener{
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         LivroFisico livro = (LivroFisico) adapter.getItem(position);
+                        Log.d("SETi", "onItemClick: " + livro.getStatus());
                         it.putExtra("idFisico", livro.getId());
                         it.putExtra("id", livro.getLivro().getId());
                         it.putExtra("titulo", livro.getLivro().getTitulo());
                         it.putExtra("descricaoFisica", livro.getDescricao());
                         it.putExtra("descricao", livro.getLivro().getDescricao());
+                        it.putExtra("status", livro.getStatus());
                         startActivity(it);
                     }
                 });
@@ -178,8 +184,11 @@ public class Livros extends AppCompatActivity implements ServerListener{
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         TextView txt = (TextView) view;
+                        Log.d("SPIN", "onItemSelected: " + txt.getText().toString());
+                        if(categoriaSelecionado==CONST_CATEGORIA_SYSTEM_SELECT)
+                            return ;
                         if(txt.getText().toString().equals("Todos")){
-                            categoriaSelecionado = -1;
+                            categoriaSelecionado = CONST_CATEGORIA_TODOS;
                             getLivrosByUserIdAndNome();
                         }
                         else{

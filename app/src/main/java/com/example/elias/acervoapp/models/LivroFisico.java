@@ -1,5 +1,6 @@
 package com.example.elias.acervoapp.models;
 
+import android.content.Intent;
 import android.os.Parcel;
 import android.os.Parcelable;
 
@@ -15,15 +16,17 @@ public class LivroFisico implements Parcelable{
     private Livro livro;
     private String descricao;
     private Emprestimo emprestimo;
+    private Integer status;
 
     public LivroFisico() {
     }
 
-    public LivroFisico(Usuario dono, Livro livros, String descricao, Emprestimo emprestimo) {
+    public LivroFisico(Usuario dono, Livro livros, String descricao, Emprestimo emprestimo, Integer status) {
         this.usuario = dono;
         this.livro = livros;
         this.descricao = descricao;
         this.emprestimo = emprestimo;
+        this.status = status;
     }
     private LivroFisico(Parcel in){
         this.id = in.readInt();
@@ -55,6 +58,14 @@ public class LivroFisico implements Parcelable{
             return new LivroFisico[0];
         }
     };
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
 
     public Integer getId() {
         return id;
