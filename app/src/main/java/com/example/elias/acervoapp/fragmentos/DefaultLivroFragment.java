@@ -33,6 +33,7 @@ public class DefaultLivroFragment extends Fragment implements ServerListener{
         sv.setListener(this);
         HashMap<String, String> hsm = new HashMap<String, String>();
         hsm.put("id", Integer.toString(getActivity().getIntent().getIntExtra("idFisico", 223)));
+        Log.d("IDE", "onCreate: " + hsm.get("id"));
         sv.sendServer("emprestimo", "getEmprestimosFromLivro", hsm, 0);
     }
 

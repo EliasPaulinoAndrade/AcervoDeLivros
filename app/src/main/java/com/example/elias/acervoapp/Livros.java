@@ -91,6 +91,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
         HashMap<String, String> hs = new HashMap<>();
         hs.put("userId", Integer.toString(userId));
         hs.put("categoriaId", Integer.toString(categoria));
+        Log.d("CATEGORIA", "getLivrosByUserIdAndCategoria: " + userId + " " + categoria);
         serverManager.sendServer("livro", "getLivrosByCategoria", hs, TAG_RETORNO_LIVROS);
     }
     public void getLivrosByUserId(){
@@ -166,6 +167,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
                 listView.setAdapter(adapter);
                 break;
             case 2:
+                Log.d("CATEGORIAS", "retorno: " + resultado);
                 if(resultado.equals("null"))
                     return;
                 Categoria[] categoriasAr = objMapper.readValue(resultado, Categoria[].class);

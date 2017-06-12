@@ -15,7 +15,6 @@ public class LivroFisico implements Parcelable{
     private Usuario usuario;
     private Livro livro;
     private String descricao;
-    private Emprestimo emprestimo;
     private Integer status;
 
     public LivroFisico() {
@@ -25,7 +24,6 @@ public class LivroFisico implements Parcelable{
         this.usuario = dono;
         this.livro = livros;
         this.descricao = descricao;
-        this.emprestimo = emprestimo;
         this.status = status;
     }
     private LivroFisico(Parcel in){
@@ -75,14 +73,6 @@ public class LivroFisico implements Parcelable{
         this.id = id;
     }
 
-    public Emprestimo getEmprestimo() {
-        return emprestimo;
-    }
-
-    public void setEmprestimo(Emprestimo emprestimo) {
-        this.emprestimo = emprestimo;
-    }
-
     public Usuario getUsuario() {
         return usuario;
     }
@@ -107,14 +97,4 @@ public class LivroFisico implements Parcelable{
         this.descricao = descricao;
     }
 
-    @Override
-    public String toString() {
-        return "LivroFisico{" +
-                "id=" + id +
-                ", usuario=" + usuario +
-                ", livro=" + livro +
-                ", descricao='" + descricao + '\'' +
-                ", emprestimo=" + emprestimo +
-                '}';
-    }
 }

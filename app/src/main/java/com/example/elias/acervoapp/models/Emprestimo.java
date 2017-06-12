@@ -11,6 +11,7 @@ public class Emprestimo {
     private Date dataDevolucao;
     private Usuario recebedor;
     private LivroFisico livroEmprestado;
+    private Integer id;
 
     public Emprestimo(){
 
@@ -52,6 +53,14 @@ public class Emprestimo {
 
     public void setLivroEmprestado(LivroFisico livroEmprestado) {
         this.livroEmprestado = livroEmprestado;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     @Override
