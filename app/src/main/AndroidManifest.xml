@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.elias.acervoapp">
+
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/coruja"
@@ -15,7 +17,7 @@
             android:theme="@style/livroDetalheStyle">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value=".Inicio" />
+                android:value=".Livros" />
         </activity>
         <activity
             android:name=".Livros"
@@ -36,12 +38,10 @@
         <activity
             android:name=".CadastroLivro"
             android:label="@string/cadastro_livro_title"
-            android:theme="@style/cadastroLivrosStyle">
-
-        </activity>
+            android:theme="@style/cadastroLivrosStyle"></activity>
         <activity
             android:name=".Inicio"
-            android:theme="@style/inicioStyle"></activity>
+            android:theme="@style/inicioStyle" />
         <activity
             android:name=".Login"
             android:theme="@style/loginStyle">
@@ -53,7 +53,14 @@
         </activity>
         <activity
             android:name=".Registro"
-            android:theme="@style/registroStyle">
+            android:theme="@style/registroStyle"></activity>
+        <activity
+            android:name=".Avisos"
+            android:label="Notificações"
+            android:theme="@style/avisosStyle">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Inicio" />
         </activity>
     </application>
 

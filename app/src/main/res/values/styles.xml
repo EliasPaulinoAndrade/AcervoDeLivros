@@ -30,4 +30,7 @@
     <style name="registroStyle" parent="Theme.AppCompat.Light.NoActionBar">
 
     </style>
+    <style name="avisosStyle" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/secYellow</item>
+    </style>
 </resources>

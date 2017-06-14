@@ -59,6 +59,8 @@ public class Inicio extends AppCompatActivity implements ServerListener {
         this.startActivity(it);
     }
     public void showAvisos(View v){
+        Intent it = new Intent(this, Avisos.class);
+        this.startActivity(it);
     }
     @Override
     public void retorno(String resultado, Integer postId) throws IOException {

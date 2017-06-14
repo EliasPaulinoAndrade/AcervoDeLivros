@@ -77,7 +77,6 @@ public class Livros extends AppCompatActivity implements ServerListener{
         if(extraCategoria==-1)
             getLivrosByUserId();
         else {
-            Log.d("TAG", "onCreate: "+extraCategoria);
             getLivrosByUserIdAndCategoria(extraCategoria);
         }
         categoriaSelecionado = CONST_CATEGORIA_SYSTEM_SELECT;
@@ -104,6 +103,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
         hm.put("nome", campoBusca.getText().toString());
         hm.put("userId", Integer.toString(userId));
         hm.put("categoriaId", Integer.toString(categoriaId));
+        Log.d("IT", "getLivrosByUserIdAndCategoriaAndNome: " + hm);
         serverManager.sendServer("livro", "getLivrosByNameAndCategoria", hm, TAG_RETORNO_LIVROS);
     }
     public void getLivrosByUserIdAndNome(){
@@ -187,8 +187,10 @@ public class Livros extends AppCompatActivity implements ServerListener{
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                         TextView txt = (TextView) view;
                         Log.d("SPIN", "onItemSelected: " + txt.getText().toString());
-                        if(categoriaSelecionado==CONST_CATEGORIA_SYSTEM_SELECT)
+                        if(categoriaSelecionado==CONST_CATEGORIA_SYSTEM_SELECT){
+                            categoriaSelecionado = CONST_CATEGORIA_TODOS;
                             return ;
+                        }
                         if(txt.getText().toString().equals("Todos")){
                             categoriaSelecionado = CONST_CATEGORIA_TODOS;
                             getLivrosByUserIdAndNome();
