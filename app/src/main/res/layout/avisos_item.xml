@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical" android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/firstGray"
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     android:paddingLeft="@dimen/padding_page_default"
@@ -10,8 +9,8 @@
     android:layout_marginBottom="10dp">
     <ImageView
         android:id="@+id/imgItem"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
         android:scaleType="centerCrop"
         android:layout_marginRight="5dp"
         android:src="@drawable/livrode">
@@ -25,7 +24,7 @@
         android:paddingLeft="15dp"
         android:textStyle="bold"
         android:textColor="@color/secWhite"
-        android:textSize="@dimen/livros_livro_title"
+        android:textSize="@dimen/H4"
         android:layout_alignBottom="@id/imgItem"/>
     <TextView
         android:id="@+id/postTxt"
@@ -34,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/titleItem"
         android:textColor="@color/firstBlue"
-        android:textSize="@dimen/livros_livro_title"
+        android:textSize="@dimen/H4"
         android:layout_alignBottom="@id/imgItem"
         android:text="Atrasou a Entrega do Livro"
         android:maxLines="1"
@@ -46,7 +45,7 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/postTxt"
         android:textColor="@color/firstBlue"
-        android:textSize="@dimen/livros_livro_title"
+        android:textSize="@dimen/H4"
         android:text="'wefweasdsaddad'"
         android:layout_alignBottom="@id/imgItem"
         android:maxLines="1"

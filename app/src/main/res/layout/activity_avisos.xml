@@ -49,9 +49,9 @@
         android:paddingTop="5dp">
         <TextView
             android:onClick="novoLivro"
-            android:textSize="@dimen/H3"
+            android:textSize="@dimen/H5"
             android:drawablePadding="5dp"
-            android:drawableLeft="@drawable/novolivro"
+            android:drawableLeft="@drawable/see"
             android:gravity="bottom"
             android:textColor="@color/secWhite"
             android:text="Visto"
@@ -61,9 +61,9 @@
         <TextView
             android:layout_marginLeft="20dp"
             android:onClick="novoLivro"
-            android:textSize="@dimen/H3"
+            android:textSize="@dimen/H5"
             android:drawablePadding="5dp"
-            android:drawableLeft="@drawable/lixo"
+            android:drawableLeft="@drawable/lixoavisos"
             android:gravity="bottom"
             android:textColor="@color/secWhite"
             android:text="Excluir"
@@ -73,9 +73,9 @@
         <TextView
             android:layout_marginLeft="20dp"
             android:onClick="novoLivro"
-            android:textSize="@dimen/H3"
+            android:textSize="@dimen/H5"
             android:drawablePadding="5dp"
-            android:drawableLeft="@drawable/check"
+            android:drawableLeft="@drawable/seeall"
             android:gravity="bottom"
             android:textColor="@color/secWhite"
             android:text="Marcar Todos"
