@@ -42,7 +42,7 @@ public class Server {
     public void setListener(ServerListener listener) {
         this.listener = listener;
     }
-
+    
     public void sendServer(final String controller, final String action, final HashMap<String, String> itens, final Integer postId){
         final String localServer = this.localServer;
         final StringBuilder retorno = new StringBuilder();
@@ -58,6 +58,7 @@ public class Server {
                 String post;
                 try{
                     url = new URL(localServer+"/"+controller+"/"+action);
+                    Log.d("LINK", "doInBackground: " + localServer+"/"+controller+"/"+action);
                     urlConn = (HttpURLConnection) url.openConnection();
                     urlConn.setDoInput(true);
                     urlConn.setDoOutput(true);

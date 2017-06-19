@@ -29,6 +29,7 @@
                 android:textSize="@dimen/BigH1" />
 
             <ImageView
+                android:id="@+id/per"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_toRightOf="@+id/numLivros"
@@ -91,5 +92,4 @@
         android:layout_height="wrap_content">
 
     </ListView>
-
 </RelativeLayout>
