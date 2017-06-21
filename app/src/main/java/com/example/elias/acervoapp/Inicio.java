@@ -27,6 +27,7 @@ public class Inicio extends AppCompatActivity implements ServerListener {
         setContentView(R.layout.activity_inicio);
         Log.d("INICIO", "onCreate: "+ PreferenceManager.getDefaultSharedPreferences(this).getString("email","naotem"));
         serverManager = new Server();
+
         serverManager.setListener(this);
         HashMap<String, String> hs = new HashMap<>();
         hs.put("id", ""+PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0));
