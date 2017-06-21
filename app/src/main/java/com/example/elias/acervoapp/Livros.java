@@ -160,7 +160,14 @@ public class Livros extends AppCompatActivity implements ServerListener{
                         it.putExtra("titulo", livro.getLivro().getTitulo());
                         it.putExtra("descricaoFisica", livro.getDescricao());
                         it.putExtra("descricao", livro.getLivro().getDescricao());
-                        it.putExtra("status", livro.getStatus());
+                        if(livro.getStatus()!=null) {
+                            it.putExtra("statusRecebedorNome", livro.getStatus().getRecebedor().getNome());
+                            if(livro.getStatus().getDataDevolucao()==null)
+                                it.putExtra("statusDevolvido", false);
+                            else
+                                it.putExtra("statusDevolvido", true);
+                            Log.d("STATUSX", "onItemClick: " + livro.getStatus().getDataDevolucao());
+                        }
                         startActivity(it);
                     }
                 });

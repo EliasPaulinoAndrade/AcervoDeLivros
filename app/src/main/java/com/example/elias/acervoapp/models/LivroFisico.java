@@ -15,12 +15,12 @@ public class LivroFisico implements Parcelable{
     private Usuario usuario;
     private Livro livro;
     private String descricao;
-    private Integer status;
+    private Emprestimo status;
 
     public LivroFisico() {
     }
 
-    public LivroFisico(Usuario dono, Livro livros, String descricao, Emprestimo emprestimo, Integer status) {
+    public LivroFisico(Usuario dono, Livro livros, String descricao, Emprestimo status) {
         this.usuario = dono;
         this.livro = livros;
         this.descricao = descricao;
@@ -57,11 +57,11 @@ public class LivroFisico implements Parcelable{
         }
     };
 
-    public Integer getStatus() {
+    public Emprestimo getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(Emprestimo status) {
         this.status = status;
     }
 

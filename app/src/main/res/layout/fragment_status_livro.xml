@@ -4,25 +4,48 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="@color/secGray">
-    <TextView
-        android:id="@+id/titleEdit"
-        android:text="Emprestado Ao João"
-        android:textAlignment="center"
-        android:gravity="center"
-        android:textSize="@dimen/detelahe_status_title"
-        android:maxLines="1"
-        android:textColorHint="@color/secWhite"
+    <FrameLayout
+        android:id="@+id/titleFrame"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
         android:paddingLeft="10dp"
-        android:textColor="@color/secWhite"
         android:layout_width="match_parent"
         android:background="@drawable/edit_arredondado"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content" >
+        <RelativeLayout
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_centerVertical="true"
+                android:textColor="@color/secWhite"
+                android:maxLines="1"
+                android:textSize="@dimen/detelahe_status_title"
+                android:id="@+id/fixedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scrollHorizontally="true"
+                android:text="Emprestado A"/>
+            <EditText
+                android:enabled="false"
+                android:id="@+id/statusName"
+                android:paddingLeft="5dp"
+                android:text="Cibele"
+                android:textColor="@color/secWhite"
+                android:textColorHint="@color/secWhite"
+                android:maxLines="1"
+                android:ellipsize="end"
+                android:textSize="@dimen/detelahe_status_title"
+                android:layout_toRightOf="@+id/fixedText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </RelativeLayout>
+    </FrameLayout>
     <TextView
         android:id="@+id/trocar"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/titleEdit"
+        android:layout_below="@id/titleFrame"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/detalhe_status_troca_titulo"
@@ -37,12 +60,14 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
         <TextView
+            android:id="@+id/statusEmprestado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="...Empreatado a .."
+            android:text="...Emprestado a .."
             android:textSize="@dimen/detelhe_status_item"
             android:textColor="@color/white"/>
         <TextView
+            android:id="@+id/statusGuardado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="...Guardado..."

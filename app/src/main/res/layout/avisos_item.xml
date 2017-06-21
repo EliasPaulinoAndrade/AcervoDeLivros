@@ -5,8 +5,7 @@
     android:paddingTop="5dp"
     android:paddingBottom="5dp"
     android:paddingLeft="@dimen/padding_page_default"
-    android:paddingRight="@dimen/padding_page_default"
-    android:layout_marginBottom="10dp">
+    android:paddingRight="@dimen/padding_page_default">
     <ImageView
         android:id="@+id/imgItem"
         android:layout_width="35dp"
