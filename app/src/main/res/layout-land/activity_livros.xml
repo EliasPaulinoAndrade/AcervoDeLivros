@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/secGray"
+    tools:context="com.example.elias.acervoapp.Livros">
+
+    <RelativeLayout
+        android:id="@+id/tituloDiv"
+        android:layout_width="match_parent"
+        android:layout_height="20dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:background="@color/firstBlue"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp">
+
+        <RelativeLayout
+            android:visibility="invisible"
+            android:layout_width="wrap_content"
+            android:layout_height="100dp"
+            android:layout_centerHorizontal="true">
+            <TextView
+                android:id="@+id/numLivros"
+                android:layout_width="wrap_content"
+                android:layout_height="100dp"
+                android:layout_alignParentBottom="true"
+                android:text="0"
+                android:textColor="@color/white"
+                android:textSize="@dimen/BigH1" />
+
+            <ImageView
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:layout_toRightOf="@+id/numLivros"
+                android:src="@drawable/imagelivros" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/pesquisaDiv"
+        android:layout_width="match_parent"
+        android:layout_height="115dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/tituloDiv"
+        android:background="@color/firstGray"
+        android:paddingBottom="10dp"
+        android:paddingLeft="@dimen/padding_page_default"
+        android:paddingRight="@dimen/padding_page_default"
+        android:paddingTop="5dp">
+
+        <TextView
+            android:id="@+id/resultadoPesquisa"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0 RESULTADOS PARA LIVRO TAL"
+            android:textColor="@color/white"
+            android:textSize="@dimen/livros_categorias_busca_resultado" />
+
+        <Button
+            android:onClick="pesquisar"
+            android:id="@+id/buscaButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/resultadoPesquisa"
+            android:background="@color/firstBlue"
+            android:drawableLeft="@drawable/busca"
+            android:minHeight="0dp"
+            android:minWidth="0dp"
+            android:paddingBottom="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:paddingTop="10dp" />
+
+        <EditText
+            android:id="@+id/buscaEdit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/buscaButton"
+            android:layout_alignTop="@id/buscaButton"
+            android:layout_toRightOf="@id/buscaButton"
+            android:background="@drawable/fundo_edit_blue"
+            android:ellipsize="end"
+            android:hint="@string/livros_categoria_input"
+            android:inputType="text"
+            android:maxLines="1"
+            android:paddingBottom="5dp"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
+            android:textColor="@color/firstBlue"
+            android:textColorHint="@color/firstBlue"
+            android:textSize="@dimen/inputBusca" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/spinner_fundo"
+            android:paddingRight="30dp"></Spinner>
+        <TextView
+            android:onClick="novoLivro"
+            android:textSize="@dimen/H3"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/novolivro"
+            android:gravity="bottom"
+            android:layout_marginLeft="30dp"
+            android:textColor="@color/secWhite"
+            android:text="@string/livros_novo"
+            android:paddingTop="10dp"
+            android:layout_alignParentBottom="true"
+            android:layout_toRightOf="@id/spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+    </RelativeLayout>
+    <View
+        android:background="@color/thirdGray"
+        android:layout_below="@id/pesquisaDiv"
+        android:layout_height="3dp"
+        android:layout_width="match_parent"
+        android:id="@+id/view">
+    </View>
+    <ProgressBar
+        android:id="@+id/progresso"
+        android:layout_below="@id/view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <ListView
+        android:dividerHeight="5dp"
+        android:paddingTop="20dp"
+        android:id="@+id/livros_listview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/livro_item"
+        android:layout_below="@+id/view"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="@dimen/d1">
+    </ListView>
+</RelativeLayout>

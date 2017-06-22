@@ -9,12 +9,13 @@
     <RelativeLayout
         android:id="@+id/tituloDiv"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="20dp"
         android:background="@color/firstYellow"
         android:paddingBottom="10dp"
         android:paddingTop="10dp">
 
         <RelativeLayout
+            android:visibility="invisible"
             android:layout_width="wrap_content"
             android:layout_height="100dp"
             android:layout_centerHorizontal="true">
@@ -49,7 +50,7 @@
         android:layout_marginBottom="15dp"
         android:paddingTop="5dp">
         <TextView
-            android:onClick="marcarComoVisto"
+            android:onClick="novoLivro"
             android:textSize="@dimen/H5"
             android:drawablePadding="5dp"
             android:drawableLeft="@drawable/see"
@@ -61,7 +62,19 @@
             android:layout_height="wrap_content" />
         <TextView
             android:layout_marginLeft="20dp"
-            android:onClick="marcarTodos"
+            android:onClick="novoLivro"
+            android:textSize="@dimen/H5"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@drawable/lixoavisos"
+            android:gravity="bottom"
+            android:textColor="@color/secWhite"
+            android:text="Excluir"
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+        <TextView
+            android:layout_marginLeft="20dp"
+            android:onClick="novoLivro"
             android:textSize="@dimen/H5"
             android:drawablePadding="5dp"
             android:drawableLeft="@drawable/seeall"

@@ -49,4 +49,12 @@
         android:layout_alignBottom="@id/imgItem"
         android:maxLines="1"
         android:ellipsize="end"/>
+    <ImageView
+        android:id="@+id/closeSelect"
+        android:visibility="invisible"
+        android:layout_width="15dp"
+        android:layout_height="15dp"
+        android:src="@drawable/close"
+        android:layout_alignParentRight="true"
+        android:layout_alignBottom="@+id/imgItem"/>
 </RelativeLayout>

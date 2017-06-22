@@ -48,6 +48,8 @@ public class Registro extends AppCompatActivity implements ServerListener{
     public void retorno(String retorno, Integer postId) {
         Log.d("REORNO", "retorno: "+retorno);
         Intent inte = new Intent(this, Login.class);
+        inte.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(inte);
+        finish();
     }
 }

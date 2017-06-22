@@ -58,6 +58,7 @@ public class Login extends AppCompatActivity implements ServerListener{
         obj.setDateFormat(sp);
         Usuario usuario = null;
         Intent inte = new Intent(this, Inicio.class);
+        inte.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK);
         if(resultado.equals("null")){
             Toast.makeText(this, "Usuário Ou Senha Errados", Toast.LENGTH_SHORT).show();
             return ;
@@ -75,6 +76,7 @@ public class Login extends AppCompatActivity implements ServerListener{
         editor.putInt("id", usuario.getId());
         editor.commit();
         startActivity(inte);
+        finish();
         Log.d("RETORNO", "retorno: "+usuario);
     }
 }

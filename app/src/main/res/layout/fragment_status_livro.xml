@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     android:padding="20dp"
     android:background="@color/secGray">
-    <FrameLayout
+    <RelativeLayout
         android:id="@+id/titleFrame"
         android:paddingBottom="10dp"
         android:paddingTop="10dp"
@@ -12,12 +12,8 @@
         android:layout_width="match_parent"
         android:background="@drawable/edit_arredondado"
         android:layout_height="wrap_content" >
-        <RelativeLayout
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
             <TextView
+                android:paddingLeft="@dimen/d4"
                 android:layout_centerVertical="true"
                 android:textColor="@color/secWhite"
                 android:maxLines="1"
@@ -27,7 +23,7 @@
                 android:layout_height="wrap_content"
                 android:scrollHorizontally="true"
                 android:text="Emprestado A"/>
-            <EditText
+            <AutoCompleteTextView
                 android:enabled="false"
                 android:id="@+id/statusName"
                 android:paddingLeft="5dp"
@@ -38,10 +34,10 @@
                 android:ellipsize="end"
                 android:textSize="@dimen/detelahe_status_title"
                 android:layout_toRightOf="@+id/fixedText"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
+                android:inputType="text"
                 android:layout_height="wrap_content" />
-        </RelativeLayout>
-    </FrameLayout>
+    </RelativeLayout>
     <TextView
         android:id="@+id/trocar"
         android:layout_marginTop="20dp"
