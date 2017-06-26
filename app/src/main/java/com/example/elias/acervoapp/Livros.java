@@ -154,7 +154,6 @@ public class Livros extends AppCompatActivity implements ServerListener{
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         LivroFisico livro = (LivroFisico) adapter.getItem(position);
-                        Log.d("SETi", "onItemClick: " + livro.getStatus());
                         it.putExtra("idFisico", livro.getId());
                         it.putExtra("id", livro.getLivro().getId());
                         it.putExtra("titulo", livro.getLivro().getTitulo());
@@ -166,7 +165,6 @@ public class Livros extends AppCompatActivity implements ServerListener{
                                 it.putExtra("statusDevolvido", false);
                             else
                                 it.putExtra("statusDevolvido", true);
-                            Log.d("STATUSX", "onItemClick: " + livro.getStatus().getDataDevolucao());
                         }
                         startActivity(it);
                     }

@@ -2,6 +2,7 @@ package com.example.elias.acervoapp.adapters;
 
 import android.content.Context;
 import android.text.Layout;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -57,6 +58,7 @@ public class LivroAdapter extends BaseAdapter {
         TextView subTitle = (TextView)item.findViewById(R.id.subTitleItem);
         title.setText(itemLivro.getLivro().getTitulo());
         subTitle.setText(itemLivro.getLivro().getDescricao());
+        Log.d("LOK", "getView: " + itemLivro.getDescricao());
         return item;
     }
 }

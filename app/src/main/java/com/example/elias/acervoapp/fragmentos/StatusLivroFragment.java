@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.elias.acervoapp.R;
@@ -38,9 +39,11 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
     private String statusNomeRecebedor;
     private TextView statusEmprestado;
     private Boolean statusDevolvido;
+    private Button fazerTroca;
     private ArrayAdapter<String> adapter;
     private Server sv;
     private ArrayList<String> sugestoes;
+    private Integer idPessoa;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,7 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         statusTxt = (AutoCompleteTextView) getActivity().findViewById(R.id.statusName);
         statusNomeRecebedor = getActivity().getIntent().getStringExtra("statusRecebedorNome");
         statusDevolvido = getActivity().getIntent().getBooleanExtra("statusDevolvido", true);
+        fazerTroca = (Button) getActivity().findViewById(R.id.fazerTroca);
         if(statusNomeRecebedor==null || statusDevolvido==true){
             statusFixed.setText("Guardado");
             statusTxt.setText("");
@@ -67,6 +71,7 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
             @Override
             public void onClick(View v) {
                 statusFixed.setText("Guardado");
+                idPessoa = -1;
                 statusTxt.setText("");
                 statusTxt.setEnabled(false);
             }
@@ -74,9 +79,17 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         statusEmprestado.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                idPessoa = -1;
                 statusFixed.setText("Emprestado A");
                 statusTxt.setText("");
                 statusTxt.setEnabled(true);
+            }
+        });
+        fazerTroca.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
             }
         });
         sugestoes = new ArrayList();
@@ -84,15 +97,6 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         statusTxt.setAdapter(adapter);
         sv = new Server();
         sv.setListener(this);
-        statusTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                TextView txt = (TextView) view;
-                String tx = txt.getText().toString();
-                String [] partes = tx.split(",");
-                statusTxt.setText(partes[0]);
-            }
-        });
         statusTxt.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
@@ -102,6 +106,7 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
                 return false;
             }
         });
+        this.idPessoa = -1;
     }
 
     @Override
@@ -113,12 +118,22 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_dropdown_item_1line, sugestoes);
         if(resultado.equals("null"))
             return ;
-        Usuario[] usrAr = obj.readValue(resultado, Usuario[].class);
+        final Usuario[] usrAr = obj.readValue(resultado, Usuario[].class);
         for(Usuario usr : usrAr){
             sugestoes.add(usr.getNome() + ", "+usr.getEmail());
         }
         statusTxt.setAdapter(adapter);
-        Log.d("efw", "retorno: "+resultado);
+        statusTxt.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView txt = (TextView) view;
+                String tx = txt.getText().toString();
+                String [] partes = tx.split(",");
+                statusTxt.setText(partes[0]);
+                idPessoa = usrAr[position].getId();
+                Log.d("IDE2", "onItemClick: " + usrAr[position].getId());
+            }
+        });
     }
 
     @Override

@@ -71,6 +71,7 @@
             android:textColor="@color/white"/>
     </LinearLayout>
     <Button
+        android:id="@+id/fazerTroca"
         android:background="@drawable/button_status_livro"
         android:layout_marginTop="18dp"
         android:layout_width="wrap_content"

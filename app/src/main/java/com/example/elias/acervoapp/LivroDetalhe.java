@@ -13,11 +13,14 @@ import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.elias.acervoapp.fragmentos.DefaultLivroFragment;
 import com.example.elias.acervoapp.fragmentos.EditLivroFragment;
@@ -39,8 +42,10 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener {
         setContentView(R.layout.activity_livro_detalhe);
         TextView titulo = (TextView) findViewById(R.id.titleLivroDetail);
         TextView descricao = (TextView) findViewById(R.id.descricaoLivroDetail);
+        TextView estado = (TextView) findViewById(R.id.estado);
         titulo.setText(getIntent().getStringExtra("titulo"));
         descricao.setText(getIntent().getStringExtra("descricao"));
+        estado.setText(getIntent().getStringExtra("descricaoFisica"));
 
         serverManager = new Server();
         serverManager.setListener(this);
@@ -202,9 +207,16 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener {
         Intent it = new Intent(this, Livros.class);
         startActivity(it);
     }
-
+    public void editarLivro(View v){
+        HashMap<String, String> hs = new HashMap<>();
+        Spinner edt = (Spinner) findViewById(R.id.spinnerEdit);
+        hs.put("livroId", Integer.toString(getIntent().getIntExtra("idFisico", -1)));
+        hs.put("descricao", edt.getSelectedItem().toString());
+        Log.d("DESC", "editarLivro: " + edt.getSelectedItem().toString());
+        serverManager.sendServer("livro", "editarLivroById", hs, 2);
+    }
     @Override
     public void retorno(String resultado, Integer postId) throws IOException {
-
+        Toast.makeText(this, "Alterações Feitas...", Toast.LENGTH_SHORT).show();
     }
 }
