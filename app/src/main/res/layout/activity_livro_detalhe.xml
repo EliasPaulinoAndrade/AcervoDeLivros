@@ -152,7 +152,6 @@
             </FrameLayout>
         </LinearLayout>
     </RelativeLayout>
-
     <fragment
         android:id="@+id/fragmentoDetail"
         android:layout_below="@+id/optionDetail"

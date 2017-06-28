@@ -12,10 +12,21 @@ public class Emprestimo {
     private Usuario recebedor;
     private LivroFisico livroEmprestado;
     private Integer id;
+    private Date dataPrevista;
 
     public Emprestimo(){
 
     }
+
+    public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario recebedor, LivroFisico livroEmprestado, Integer id, Date dataPrevista) {
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.recebedor = recebedor;
+        this.livroEmprestado = livroEmprestado;
+        this.id = id;
+        this.dataPrevista = dataPrevista;
+    }
+
     public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario recebedor, LivroFisico livroEmprestado) {
         this.dataEmprestimo = dataEmprestimo;
         this.dataDevolucao = dataDevolucao;
@@ -49,6 +60,15 @@ public class Emprestimo {
 
     public LivroFisico getLivroEmprestado() {
         return livroEmprestado;
+    }
+
+
+    public Date getDataPrevista() {
+        return dataPrevista;
+    }
+
+    public void setDataPrevista(Date dataPrevista) {
+        this.dataPrevista = dataPrevista;
     }
 
     public void setLivroEmprestado(LivroFisico livroEmprestado) {

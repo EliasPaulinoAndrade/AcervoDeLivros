@@ -39,9 +39,41 @@
                 android:layout_height="wrap_content" />
     </RelativeLayout>
     <TextView
+        android:textColor="@color/thirdGray"
+        android:id="@+id/por"
+        android:textSize="@dimen/H4"
+        android:padding="5dp"
+        android:layout_below="@id/titleFrame"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Por"/>
+    <EditText
+        android:enabled="false"
+        android:textColor="@color/thirdGray"
+        android:textSize="@dimen/H4"
+        android:layout_toRightOf="@id/por"
+        android:id="@+id/dias"
+        android:layout_below="@id/titleFrame"
+        android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:inputType="number"
+        android:text="1"
+        android:padding="5dp">
+    </EditText>
+    <TextView
+        android:textColor="@color/thirdGray"
+        android:id="@+id/semn"
+        android:layout_below="@id/titleFrame"
+        android:textSize="@dimen/H4"
+        android:padding="5dp"
+        android:layout_toRightOf="@id/dias"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Semanas Há 10 dias"/>
+    <TextView
         android:id="@+id/trocar"
         android:layout_marginTop="20dp"
-        android:layout_below="@id/titleFrame"
+        android:layout_below="@id/dias"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/detalhe_status_troca_titulo"

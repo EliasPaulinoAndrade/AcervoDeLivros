@@ -30,6 +30,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -161,10 +162,18 @@ public class Livros extends AppCompatActivity implements ServerListener{
                         it.putExtra("descricao", livro.getLivro().getDescricao());
                         if(livro.getStatus()!=null) {
                             it.putExtra("statusRecebedorNome", livro.getStatus().getRecebedor().getNome());
-                            if(livro.getStatus().getDataDevolucao()==null)
+                            if(livro.getStatus().getDataDevolucao()==null) {
                                 it.putExtra("statusDevolvido", false);
-                            else
+                                it.putExtra("statusOffSet", 2);
+                                Date today =  new Date();
+                                Long offset = (today.getTime() - (livro.getStatus().getDataEmprestimo().getTime()))/(1000*60*60*24);
+                                Long offset2 = (livro.getStatus().getDataPrevista().getTime() - (livro.getStatus().getDataEmprestimo().getTime()))/(1000*60*60*24*7);
+                                it.putExtra("statusDia", offset);
+                                it.putExtra("statusSem", offset2);
+                            }
+                            else {
                                 it.putExtra("statusDevolvido", true);
+                            }
                         }
                         startActivity(it);
                     }
