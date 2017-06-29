@@ -8,4 +8,5 @@ import java.io.IOException;
 
 public interface ServerListener {
     void retorno(String resultado, Integer postId) throws IOException;
+
 }

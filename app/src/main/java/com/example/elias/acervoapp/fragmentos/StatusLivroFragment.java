@@ -114,13 +114,14 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
                 semn.setVisibility(View.VISIBLE);
                 por.setVisibility(View.VISIBLE);
                 dias.setEnabled(true);
-                dias.setText("");
+                dias.setText("1");
                 semn.setText("Semanas");
             }
         });
         fazerTroca.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 HashMap<String, String> hm = new HashMap<String, String>();
                 hm.put("idUser", ""+idPessoa);
                 hm.put("idLivro", ""+idFisico);

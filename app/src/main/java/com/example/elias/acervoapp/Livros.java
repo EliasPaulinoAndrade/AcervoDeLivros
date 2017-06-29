@@ -50,6 +50,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
     private Integer userId;
     private final Integer CONST_CATEGORIA_TODOS = -1;
     private final Integer CONST_CATEGORIA_SYSTEM_SELECT = -2;
+    private TextView ntem;
 
     private Integer extraCategoria;
     @Override
@@ -66,6 +67,7 @@ public class Livros extends AppCompatActivity implements ServerListener{
         serverManager = new Server();
         userId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0);
         serverManager.setListener(this);
+        ntem = (TextView) findViewById(R.id.ntem);
 
         String[] dados = {"DEFAULT"};
         ArrayAdapter<String> adp = new ArrayAdapter<String>(this, R.layout.spinner_lay, dados);
@@ -141,8 +143,10 @@ public class Livros extends AppCompatActivity implements ServerListener{
                     txtResult.setText("0 RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
                     adapter = new LivroAdapter(new ArrayList<LivroFisico>(), getApplicationContext());
                     listView.setAdapter(adapter);
+                    ntem.setVisibility(View.VISIBLE);
                     return ;
                 }
+                ntem.setVisibility(View.INVISIBLE);
                 LivroFisico[] livrosAr = objMapper.readValue(resultado, LivroFisico[].class);
                 List<LivroFisico> livros = Arrays.asList(livrosAr);
 

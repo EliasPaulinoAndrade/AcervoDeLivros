@@ -13,9 +13,20 @@ public class Emprestimo {
     private LivroFisico livroEmprestado;
     private Integer id;
     private Date dataPrevista;
+    private Integer marcado;
 
     public Emprestimo(){
 
+    }
+
+    public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario recebedor, LivroFisico livroEmprestado, Integer id, Date dataPrevista, Integer marcado) {
+        this.dataEmprestimo = dataEmprestimo;
+        this.dataDevolucao = dataDevolucao;
+        this.recebedor = recebedor;
+        this.livroEmprestado = livroEmprestado;
+        this.id = id;
+        this.dataPrevista = dataPrevista;
+        this.marcado = marcado;
     }
 
     public Emprestimo(Date dataEmprestimo, Date dataDevolucao, Usuario recebedor, LivroFisico livroEmprestado, Integer id, Date dataPrevista) {
@@ -32,6 +43,14 @@ public class Emprestimo {
         this.dataDevolucao = dataDevolucao;
         this.recebedor = recebedor;
         this.livroEmprestado = livroEmprestado;
+    }
+
+    public Integer getMarcado() {
+        return marcado;
+    }
+
+    public void setMarcado(Integer marcado) {
+        this.marcado = marcado;
     }
 
     public Date getDataEmprestimo() {

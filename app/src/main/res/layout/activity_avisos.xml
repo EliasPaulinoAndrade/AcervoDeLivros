@@ -72,6 +72,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
+    <TextView
+        android:visibility="invisible"
+        android:text="Não Há Avisos"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/H3"
+        android:textColor="@color/thirdGray"
+        android:layout_below="@+id/pesquisaDiv"
+        android:id="@+id/ntem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <ListView
         android:dividerHeight="1dp"
         android:id="@+id/listAvisos"

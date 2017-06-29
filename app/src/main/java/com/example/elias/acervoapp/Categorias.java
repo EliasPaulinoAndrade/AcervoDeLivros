@@ -36,6 +36,7 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
     private TextView resultTxt;
     private EditText campoBusca;
     private final Integer TAG_CATEGORIA = 0;
+    private TextView ntem;
 
     private List<Categoria> categorias;
     @Override
@@ -45,6 +46,7 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
 
         gridview = (GridView) findViewById(R.id.gridview);
         gridview.setOnItemClickListener(this);
+        ntem = (TextView) findViewById(R.id.ntem);
 
         objMapper = new ObjectMapper();
         resultTxtBig = (TextView) findViewById(R.id.numCategorias);
@@ -78,8 +80,11 @@ public class Categorias extends AppCompatActivity implements ServerListener, Ada
     public void retorno(String resultado, Integer postId) throws IOException {
         if(resultado.equals("null")){
             resultTxt.setText("0 RESULTADOS PARA CATEGORIA \" "+ campoBusca.getText() +" \"");
+            ntem.setVisibility(View.VISIBLE);
+            gridview.setAdapter(new CategoriaAdapter(getApplicationContext(), new ArrayList<Categoria>()));
             return ;
         }
+        ntem.setVisibility(View.INVISIBLE);
         Categoria[] categoriasAr = objMapper.readValue(resultado, Categoria[].class);
         categorias = Arrays.asList(categoriasAr);
         resultTxtBig.setText(Integer.toString(categorias.size()));

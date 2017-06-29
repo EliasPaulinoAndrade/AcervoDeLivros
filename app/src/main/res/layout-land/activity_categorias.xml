@@ -103,6 +103,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </RelativeLayout>
+    <TextView
+        android:visibility="invisible"
+        android:text="Não Há Avisos"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/H3"
+        android:textColor="@color/thirdGray"
+        android:layout_below="@+id/pesquisaDiv"
+        android:id="@+id/ntem"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
     <GridView
         tools:listitem="@layout/categoria_item"
         android:layout_marginTop="20dp"
