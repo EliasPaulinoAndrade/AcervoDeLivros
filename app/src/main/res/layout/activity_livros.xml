@@ -127,6 +127,7 @@
         android:id="@+id/view">
     </View>
     <TextView
+        android:layout_marginTop="15dp"
         android:visibility="invisible"
         android:text="Não Há Avisos"
         android:layout_centerHorizontal="true"

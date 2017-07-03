@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="livros_livro_image_square">120dp</dimen>
+    <dimen name="inicio_grafico_square">200dp</dimen>
+    <dimen name="inicio_grafico_raio">70dp</dimen>
+    <dimen name="livros_livro_title">@dimen/H2</dimen>
+    <dimen name="livros_livro_subtitle">@dimen/H3</dimen>
+    <dimen name="categorias_item_title">@dimen/H3</dimen>
+    <dimen name="inicio_item_title">@dimen/H3</dimen>
+</resources>

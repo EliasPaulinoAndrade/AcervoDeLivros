@@ -1,7 +1,9 @@
 package com.example.elias.acervoapp;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -26,6 +28,7 @@ import com.example.elias.acervoapp.fragmentos.DefaultLivroFragment;
 import com.example.elias.acervoapp.fragmentos.EditLivroFragment;
 import com.example.elias.acervoapp.fragmentos.RemoveLivroFragment;
 import com.example.elias.acervoapp.fragmentos.StatusLivroFragment;
+import com.example.elias.acervoapp.interfaces.BitmapListener;
 import com.example.elias.acervoapp.interfaces.ServerListener;
 import com.example.elias.acervoapp.models.LivroFisico;
 import com.example.elias.acervoapp.server.Server;
@@ -33,9 +36,10 @@ import com.example.elias.acervoapp.server.Server;
 import java.io.IOException;
 import java.util.HashMap;
 
-public class LivroDetalhe extends AppCompatActivity implements ServerListener {
+public class LivroDetalhe extends AppCompatActivity implements ServerListener, BitmapListener {
     private int mostrandoFragment;
     Server serverManager;
+    ImageView img;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,12 +47,16 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener {
         TextView titulo = (TextView) findViewById(R.id.titleLivroDetail);
         TextView descricao = (TextView) findViewById(R.id.descricaoLivroDetail);
         TextView estado = (TextView) findViewById(R.id.estado);
+        img = (ImageView)findViewById(R.id.imageView);
         titulo.setText(getIntent().getStringExtra("titulo"));
         descricao.setText(getIntent().getStringExtra("descricao"));
         estado.setText(getIntent().getStringExtra("descricaoFisica"));
 
         serverManager = new Server();
         serverManager.setListener(this);
+
+        serverManager.setBitListener(this);
+        serverManager.getBitmapFromUrl("http://192.168.1.103/testeCI/assets/imgs/"+getIntent().getIntExtra("idFisico", -1)+".jpg", 1);
 
         final ScrollView scl = (ScrollView) findViewById(R.id.activity_livro_detalhe);
         scl.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
@@ -218,5 +226,12 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener {
     @Override
     public void retorno(String resultado, Integer postId) throws IOException {
         Toast.makeText(this, "Alterações Feitas...", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void retorno(Bitmap bitmap, Integer postId) throws IOException {
+        if(bitmap == null)
+            return ;
+        img.setImageBitmap(bitmap);
     }
 }

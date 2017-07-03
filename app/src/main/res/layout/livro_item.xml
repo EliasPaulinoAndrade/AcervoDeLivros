@@ -17,7 +17,7 @@
         android:layout_width="@dimen/livros_livro_image_square"
         android:layout_height="@dimen/livros_livro_image_square"
         android:layout_marginRight="15dp"
-        android:src="@drawable/livrode"
+        android:src="@drawable/defaultlivro"
         app:civ_border_color="@color/white"
         app:civ_border_width="0dp" />
 

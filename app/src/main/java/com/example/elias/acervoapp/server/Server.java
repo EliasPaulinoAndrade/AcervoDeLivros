@@ -34,7 +34,7 @@ public class Server {
     private BitmapListener bitListener;
 
     public Server(){
-        this.localServer = "http://192.168.56.1/testeCI/index.php";
+        this.localServer = "http://192.168.1.103/testeCI/index.php";
     }
     public Server(String localServer) {
         this.localServer = localServer;

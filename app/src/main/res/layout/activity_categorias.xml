@@ -103,6 +103,7 @@
             android:layout_height="wrap_content" />
     </RelativeLayout>
     <TextView
+        android:layout_marginTop="15dp"
         android:visibility="invisible"
         android:text="Não Há Categorias"
         android:layout_centerHorizontal="true"
@@ -118,7 +119,7 @@
         android:verticalSpacing="20dp"
         android:horizontalSpacing="40dp"
         android:id="@+id/gridview"
-        android:columnWidth="80dp"
+        android:columnWidth="60dp"
         android:numColumns="auto_fit"
         android:stretchMode="columnWidth"
         android:gravity="center"

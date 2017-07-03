@@ -55,7 +55,7 @@
             android:layout_width="match_parent"
             android:scaleType="centerCrop"
             android:layout_height="match_parent"
-            android:src="@drawable/livrode"
+            android:src="@drawable/defaultlivro"
             android:id="@+id/imageView" />
     </RelativeLayout>
     <RelativeLayout

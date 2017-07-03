@@ -12,7 +12,7 @@
         tools:context="com.example.elias.acervoapp.Inicio">
         <ImageView
             android:id="@+id/logoImg"
-            android:layout_width="50dp"
+            android:layout_width="85dp"
             android:layout_height="70dp"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="@dimen/d6"
@@ -21,8 +21,8 @@
         <TextView
             android:id="@+id/logoTxt"
             android:textColor="@color/secWhite"
-            android:textSize="@dimen/H2"
-            android:layout_marginTop="@dimen/d1"
+            android:textSize="@dimen/H1"
+            android:layout_marginTop="@dimen/d2"
             android:layout_below="@+id/logoImg"
             android:layout_width="wrap_content"
             android:layout_centerHorizontal="true"

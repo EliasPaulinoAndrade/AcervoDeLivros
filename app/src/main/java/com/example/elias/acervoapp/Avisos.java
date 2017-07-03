@@ -29,7 +29,7 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 
-public class Avisos extends AppCompatActivity implements ServerListener, BitmapListener {
+public class Avisos extends AppCompatActivity implements ServerListener {
     private ListView listView;
     private AvisoAdapter adapter;
     private ArrayList<View> clicados;
@@ -77,8 +77,6 @@ public class Avisos extends AppCompatActivity implements ServerListener, BitmapL
                 return false;
             }
         });
-        sv.getBitmapFromUrl("https://cdn.pixabay.com/photo/2017/03/26/12/13/countryside-2175353__340.jpg", 3);
-        sv.setBitListener(this);
     }
     public void marcarComoVisto(View v){
         Integer pos = 0;
@@ -153,13 +151,6 @@ public class Avisos extends AppCompatActivity implements ServerListener, BitmapL
             case 3:
                 break;
         }
-    }
-
-    @Override
-    public void retorno(Bitmap bitmap, Integer postId) throws IOException {
-        ImageView img =  (ImageView) findViewById(R.id.per);
-        img.setImageBitmap(bitmap);
-        Log.d("teste", "retorno: ");
     }
 
     static class Aviso{

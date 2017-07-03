@@ -2,7 +2,9 @@ package com.example.elias.acervoapp;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.graphics.drawable.ColorDrawable;
+import android.media.Image;
 import android.os.Parcelable;
 import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
@@ -11,12 +13,14 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
 import com.example.elias.acervoapp.adapters.LivroAdapter;
+import com.example.elias.acervoapp.interfaces.BitmapListener;
 import com.example.elias.acervoapp.interfaces.ServerListener;
 import com.example.elias.acervoapp.models.Categoria;
 import com.example.elias.acervoapp.models.Livro;
@@ -34,7 +38,7 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
-public class Livros extends AppCompatActivity implements ServerListener{
+public class Livros extends AppCompatActivity implements ServerListener {
 
     private ListView listView;
     private LivroAdapter adapter;
