@@ -22,12 +22,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:scrollHorizontally="true"
-                android:text="Emprestado A"/>
+                android:text="Guardado"/>
             <AutoCompleteTextView
                 android:enabled="false"
                 android:id="@+id/statusName"
                 android:paddingLeft="5dp"
-                android:text="Cibele"
+                android:text=""
                 android:textColor="@color/secWhite"
                 android:textColorHint="@color/secWhite"
                 android:maxLines="1"

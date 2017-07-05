@@ -5,6 +5,8 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.text.method.BaseKeyListener;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -134,9 +136,29 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
         statusTxt.setAdapter(adapter);
         sv = new Server();
         sv.setListener(this);
+        statusTxt.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                Log.d("tecla", "onKey: " + "teclou");
+                HashMap<String, String> hm = new HashMap<String, String>();
+                hm.put("nome", statusTxt.getText().toString());
+                sv.sendServer("usuario", "getUsuariosByNome", hm,0);
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
+            }
+        });
         statusTxt.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
+                Log.d("tecla", "onKey: " + "teclou");
                 HashMap<String, String> hm = new HashMap<String, String>();
                 hm.put("nome", statusTxt.getText().toString());
                 sv.sendServer("usuario", "getUsuariosByNome", hm,0);
@@ -150,6 +172,7 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
     public void retorno(String resultado, Integer postId) throws IOException {
         switch (postId) {
             case 0:
+                Log.d("THIS", "retorno: " + resultado);
                 ObjectMapper obj = new ObjectMapper();
                 SimpleDateFormat sp = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                 obj.setDateFormat(sp);
@@ -170,11 +193,13 @@ public class StatusLivroFragment extends Fragment implements ServerListener{
                         String[] partes = tx.split(",");
                         statusTxt.setText(partes[0]);
                         idPessoa = usrAr[position].getId();
-                        Log.d("IDE2", "onItemClick: " + usrAr[position].getId());
+
                     }
                 });
+                break;
             case 2:
                 Toast.makeText(this.getActivity(), "Alterações Feitas...", Toast.LENGTH_SHORT).show();
+                break;
         }
     }
 

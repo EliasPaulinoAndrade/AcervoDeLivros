@@ -11,6 +11,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ImageView;
@@ -80,7 +81,6 @@ public class Livros extends AppCompatActivity implements ServerListener {
         extraCategoria = getIntent().getIntExtra("sharedCategoriaBusca", -1);
 
         getCategoriasById();
-
         if(extraCategoria==-1)
             getLivrosByUserId();
         else {
@@ -142,7 +142,6 @@ public class Livros extends AppCompatActivity implements ServerListener {
 
                 ProgressBar prog  = (ProgressBar) findViewById(R.id.progresso);
                 prog.setVisibility(View.INVISIBLE);
-
                 if(resultado.equals("null")){
                     txtResult.setText("0 RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
                     adapter = new LivroAdapter(new ArrayList<LivroFisico>(), getApplicationContext());
@@ -153,11 +152,8 @@ public class Livros extends AppCompatActivity implements ServerListener {
                 ntem.setVisibility(View.INVISIBLE);
                 LivroFisico[] livrosAr = objMapper.readValue(resultado, LivroFisico[].class);
                 List<LivroFisico> livros = Arrays.asList(livrosAr);
-
                 textResultBig.setText(Integer.toString(livros.size()));
-
                 txtResult.setText(Integer.toString(livros.size()) + " RESULTADOS PARA \" "+campoBusca.getText().toString()+" \"");
-
                 adapter = new LivroAdapter(livros, getApplicationContext());
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override

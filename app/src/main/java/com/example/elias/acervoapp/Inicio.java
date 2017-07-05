@@ -21,17 +21,31 @@ import java.util.HashMap;
 
 public class Inicio extends AppCompatActivity implements ServerListener {
     private Server serverManager;
+    private GraficoSecao guardados ;
+    private GraficoSecao emprestados ;
+    private GraficoPizza pizza ;
+    private TextView qntLivros ;
+    private TextView guardPer ;
+    private TextView empPer;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio);
-        Log.d("INICIO", "onCreate: "+ PreferenceManager.getDefaultSharedPreferences(this).getString("email","naotem"));
+
+        guardados = (GraficoSecao) findViewById(R.id.livrosGuardados);
+        emprestados = (GraficoSecao) findViewById(R.id.livrosEmprestados);
+        pizza = (GraficoPizza) findViewById(R.id.pizza);
+        qntLivros = (TextView) findViewById(R.id.qntLivros);
+        guardPer = (TextView) findViewById(R.id.guardadosPer);
+        empPer = (TextView) findViewById(R.id.emprestadosPer);
+
         serverManager = new Server();
 
         serverManager.setListener(this);
         HashMap<String, String> hs = new HashMap<>();
         hs.put("id", ""+PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0));
         serverManager.sendServer("livro", "getLivrosPorcetagem", hs, 1);
+
     }
 
     @Override
@@ -72,13 +86,6 @@ public class Inicio extends AppCompatActivity implements ServerListener {
         Float emp = Float.parseFloat((String)hs.get("emprestados"));
         Float gud = Float.parseFloat((String)hs.get("guardados"));
         String qnt = (String)hs.get("quanntidade");
-
-        GraficoSecao guardados = (GraficoSecao) findViewById(R.id.livrosGuardados);
-        GraficoSecao emprestados = (GraficoSecao) findViewById(R.id.livrosEmprestados);
-        GraficoPizza pizza = (GraficoPizza) findViewById(R.id.pizza);
-        TextView qntLivros = (TextView) findViewById(R.id.qntLivros);
-        TextView guardPer = (TextView) findViewById(R.id.guardadosPer);
-        TextView empPer = (TextView) findViewById(R.id.emprestadosPer);
 
         qntLivros.setText(qnt + "\nLivros");
         guardPer.setText(df.format(gud) + "%");

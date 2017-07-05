@@ -124,7 +124,6 @@ public class Avisos extends AppCompatActivity implements ServerListener {
     public void retorno(String resultado, Integer postId) throws IOException {
         switch (postId){
             case 1:
-                Log.d("retorno", "retorno: " + resultado);
                 ObjectMapper obj = new ObjectMapper();
 
                 if(resultado.equals("null")){

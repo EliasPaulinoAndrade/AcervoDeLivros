@@ -57,31 +57,8 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener, B
 
         serverManager.setBitListener(this);
         serverManager.getBitmapFromUrl("http://192.168.1.103/testeCI/assets/imgs/"+getIntent().getIntExtra("idFisico", -1)+".jpg", 1);
+        getSupportActionBar().setElevation(0);
 
-        final ScrollView scl = (ScrollView) findViewById(R.id.activity_livro_detalhe);
-        scl.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() {
-            RelativeLayout detail = (RelativeLayout)findViewById(R.id.livroDetail);
-            float oldY = 0;
-            boolean sizechange = false;
-            @Override
-            public void onScrollChanged() {
-                if(sizechange){
-                    sizechange = false;
-                    return ;
-                }
-                if(scl.getScrollY()>oldY){
-                    setActionBarTitulo(detail);
-                    hideDetail(detail);
-                    sizechange = true;
-                }
-                else{
-                    unsetActionBarTitulo();
-                    showDetail(detail);
-                    sizechange = true;
-                }
-                oldY = scl.getScrollY();
-            }
-        });
         this.mostrandoFragment = 0;//0 default, 1 edit, 2 remove, 3 status
     }
     private void setButton(View v, int colorBack, int imageIcon, int textColor){

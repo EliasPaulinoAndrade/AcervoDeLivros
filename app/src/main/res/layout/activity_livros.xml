@@ -21,7 +21,7 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_centerHorizontal="true">
 
             <TextView
@@ -34,8 +34,8 @@
                 android:textSize="@dimen/BigH1" />
 
             <ImageView
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
                 android:layout_toRightOf="@+id/numLivros"
                 android:src="@drawable/imagelivros" />
         </RelativeLayout>

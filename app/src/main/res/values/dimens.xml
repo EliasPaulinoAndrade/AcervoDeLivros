@@ -23,8 +23,8 @@
     <dimen name="H4">12sp</dimen>
     <dimen name="H5">10sp</dimen>
     <dimen name="H6">8sp</dimen>
-    <dimen name="BigH1">90sp</dimen>
-    <dimen name="BigH2">50sp</dimen>
+    <dimen name="BigH1">70sp</dimen>
+    <dimen name="BigH2">40sp</dimen>
     <!--Fontes Que Mudam-->
     <dimen name="inicio_item_title">@dimen/H4</dimen>
     <dimen name="inicio_grafico_text">@dimen/H1</dimen>

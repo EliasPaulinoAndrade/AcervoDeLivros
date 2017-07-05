@@ -21,19 +21,19 @@
         android:layout_alignParentStart="true">
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="100dp"
+            android:layout_height="80dp"
             android:layout_centerHorizontal="true">
             <TextView
                 android:id="@+id/numCategorias"
                 android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 android:text="0"
                 android:textSize="@dimen/BigH1"
                 android:layout_alignParentBottom="true"
                 android:textColor="@color/white"/>
             <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="100dp"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
                 android:src="@drawable/categoriasicon"
                 android:layout_toRightOf="@+id/numCategorias"/>
         </RelativeLayout>
@@ -43,7 +43,7 @@
         android:id="@+id/pesquisaDiv"
         android:background="@color/firstGray"
         android:layout_width="match_parent"
-        android:layout_height="115dp"
+        android:layout_height="wrap_content"
         android:paddingTop="5dp"
         android:paddingBottom="10dp"
         android:paddingLeft="@dimen/padding_page_default"
@@ -90,17 +90,7 @@
             android:inputType="text"
             android:ellipsize="end"
             android:paddingLeft="10dp"/>
-        <TextView
-            android:textSize="@dimen/H3"
-            android:drawablePadding="5dp"
-            android:drawableLeft="@drawable/novolivro"
-            android:gravity="bottom"
-            android:textColor="@color/secWhite"
-            android:text="@string/livros_novo"
-            android:paddingTop="10dp"
-            android:layout_alignParentBottom="true"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+
     </RelativeLayout>
     <TextView
         android:layout_marginTop="15dp"

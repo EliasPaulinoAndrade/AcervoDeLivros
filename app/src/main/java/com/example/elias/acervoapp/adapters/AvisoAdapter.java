@@ -1,17 +1,22 @@
 package com.example.elias.acervoapp.adapters;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.elias.acervoapp.R;
+import com.example.elias.acervoapp.interfaces.BitmapListener;
 import com.example.elias.acervoapp.models.LivroFisico;
 import com.example.elias.acervoapp.models.Usuario;
+import com.example.elias.acervoapp.server.Server;
 
+import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 
@@ -23,6 +28,7 @@ public class AvisoAdapter extends BaseAdapter {
     private List<String> nomes;
     private List<String> livros;
     private Context ctx;
+    private Server sv;
 
     public AvisoAdapter(List<String> nomes, List<String> livros, Context ctx) {
         this.nomes = nomes;
@@ -51,6 +57,7 @@ public class AvisoAdapter extends BaseAdapter {
         String livroAviso = livros.get(i);
         LayoutInflater inflater = (LayoutInflater) ctx.getSystemService(ctx.LAYOUT_INFLATER_SERVICE);
         RelativeLayout item  = (RelativeLayout) inflater.inflate(R.layout.avisos_item, viewGroup, false);
+        final ImageView img = (ImageView)  item.findViewById(R.id.imgItem);
         TextView title = (TextView) item.findViewById(R.id.titleItem);
         TextView lastTxt = (TextView)item.findViewById(R.id.lastTxt);
         title.setText(nomeAviso);
