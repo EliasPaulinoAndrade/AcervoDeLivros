@@ -12,6 +12,9 @@ O Acervo ofecere um meio prático de controlar acervos pessoais de livros.
 2. Controle de emprestimos.
 -- Guarda informações dos livros que você emprestou e dos que pegou emprestado --
 
+## Imagens: 
+
+
 ## Plataforma de Desenvolvimento:
 Android Studio
 
@@ -26,8 +29,14 @@ Android Nativo
 1. Codeigniter 
 
 ## Habilidades Desenvolvidas
-1. 
-2. 
+1. Conhecimentos em fabricacao de layouts;
+2. Banco de dados relacional(mysql);
+3. Modelagem de banco;
+4. Json;
+5. Codeigniter;
+6. Criação de views(sobrescrevendo onDraw);
+7. Animações de transitions entre activitys;
+8. Entre outros.
 
 
 ## Repositórios auxiliares:
