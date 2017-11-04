@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.elias.acervoapp.adapters.LivroAdapter;
 import com.example.elias.acervoapp.interfaces.BitmapListener;
@@ -73,6 +74,7 @@ public class Livros extends AppCompatActivity implements ServerListener {
         userId = PreferenceManager.getDefaultSharedPreferences(this).getInt("id", 0);
         serverManager.setListener(this);
         ntem = (TextView) findViewById(R.id.ntem);
+        Toast.makeText(this, userId.toString(), Toast.LENGTH_LONG).show();
 
         String[] dados = {"DEFAULT"};
         ArrayAdapter<String> adp = new ArrayAdapter<String>(this, R.layout.spinner_lay, dados);

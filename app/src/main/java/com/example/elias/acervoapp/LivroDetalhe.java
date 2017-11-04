@@ -56,7 +56,7 @@ public class LivroDetalhe extends AppCompatActivity implements ServerListener, B
         serverManager.setListener(this);
 
         serverManager.setBitListener(this);
-        serverManager.getBitmapFromUrl("http://192.168.1.103/testeCI/assets/imgs/"+getIntent().getIntExtra("idFisico", -1)+".jpg", 1);
+        serverManager.getBitmapFromUrl("http://192.168.0.7/acervoserver/assets/imgs/"+getIntent().getIntExtra("idFisico", -1)+".jpg", 1);
         getSupportActionBar().setElevation(0);
 
         this.mostrandoFragment = 0;//0 default, 1 edit, 2 remove, 3 status

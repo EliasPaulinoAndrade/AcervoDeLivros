@@ -103,7 +103,7 @@ public class LivroAdapter extends BaseAdapter{
         par.put("userId", itemLivro.getUsuario().getId().toString());
         par.put("livroId", itemLivro.getLivro().getId().toString());
         sv.sendServer("categoria", "getCategoriasByUsuarioAndLivro", par, 1);
-        sv.getBitmapFromUrl("http://192.168.1.103/testeCI/assets/imgs/"+itemLivro.getId()+".jpg", itemLivro.getId());
+        sv.getBitmapFromUrl("http://192.168.0.7/acervoserver/assets/imgs/"+itemLivro.getId()+".jpg", itemLivro.getId());
         if(view!=null){
             Log.d("TESTEVIEW", "getView: "  + ((TextView)view.findViewById(R.id.livroTags)).getText());
         }
