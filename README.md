@@ -7,12 +7,12 @@ Desenvolvido por: Elias Paulino Andrade e Cibele Paulino Andrade
 O Acervo ofecere um meio prático de controlar acervos pessoais de livros.
 
 ## Serviços: 
-1. Cadastro de Livros;
+1. Cadastro de Livros:
 * Titulo, autor, editora, edição, ano de publicação, situação (no acervo ou emprestado), estado de conservação e breve descrição.
 * Histórico do livro.
 * Divisão por categorias.
 * Opção de busca.
-2. Controle de emprestimos.
+2. Controle de emprestimos:
 * Guarda informações dos livros que você emprestou e dos que pegou emprestado.
 
 ## Plataforma de Desenvolvimento:
@@ -25,7 +25,7 @@ Android Nativo
 1. Java
 2. PHP
 
-## Framework do servidor:
+## Framework do Servidor:
 1. Codeigniter 
 
 ## Habilidades Desenvolvidas
